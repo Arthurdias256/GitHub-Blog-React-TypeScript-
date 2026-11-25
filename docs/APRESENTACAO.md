@@ -31,6 +31,7 @@ Revise este roteiro, os arquivos citados e as dez issues. Execute `npm ci`, `npm
 | src/components/Pagination.tsx | Props page/pages/disabled/onPage; controles e aria-current |
 | src/pages/PostDetails.tsx | Parâmetro dinâmico e requisição individual; cabeçalho/retorno |
 | src/components/MarkdownContent.tsx | Markdown/GFM, HTML ignorado e links seguros |
+| src/utils/remarkHeadingOrder.ts | Normaliza níveis na árvore Markdown abaixo do h1 do post, sem alterar código |
 | src/components/States.tsx | Loading/status, erro/alert, espera de rate limit e vazio |
 | src/styles/global.css | Tailwind v4, @theme, Nunito e Markdown responsivo |
 | src/tests/ e tests/e2e/ | Testing Library/MSW e Playwright/axe com dados exclusivos de teste |
@@ -68,3 +69,24 @@ Revise este roteiro, os arquivos citados e as dez issues. Execute `npm ci`, `npm
 - [ ] Registrar sua validação em docs/AI_USAGE.md.
 - [ ] Conferir URLs reais e prazo no Blackboard.
 - [ ] Apresentar individualmente. Testes e pontuação técnica não substituem essa condição.
+
+## Perguntas adicionais após a auditoria final
+**O que a auditoria realmente corrigiu?** Um Link do logotipo retirava q da URL, mas o input antigo disparava debounce e restaurava o termo. Também havia salto h1 → h3 no conteúdo e divergência entre nome acessível/label visível dos cards. As correções mantiveram a UI e receberam regressões. O contorno da busca foi ajustado para pelo menos 3:1 e o perfil ganhou @ conforme RF-02. Mostrar commits 5836af6, 542aaf4 e b93554b.
+
+**Por que há atualização de estado durante um render em Home?** Ela é condicional: só quando observedQuery difere da query da URL. Assim o React ajusta draft antes de confirmar o render e rodar efeitos com o termo antigo. O próximo render tem os valores iguais e não repete o ajuste. Não é um setState incondicional, nem depende apenas de popstate: funciona com Link, voltar e avançar. Mostrar o teste “logotipo limpa a consulta e o histórico restaura a pesquisa correta”.
+
+**Como o card inteiro continua clicável sem envolver o artigo num link?** O artigo contém título, data, resumo e comentários. O Link fica no título, e ::after com position absolute/inset:0 estende sua área ao cartão. Seu nome vem do texto visível do título; não é necessário substituir todo o conteúdo por aria-label. focus-within destaca a borda. O E2E clica no padding, não somente no texto.
+
+**Por que um plugin próprio para headings?** O título do post já é h1. O plugin percorre a AST do Markdown e mantém uma pilha dos níveis originais; cada descendência real vira o nível seguinte, começando por h2. Títulos iguais/anteriores encerram a subseção. O limite é h6. Blocos de código não são headings e ficam intactos. Isso evita saltos mesmo se a issue começa em ###. O HTML externo continua desabilitado.
+
+**Quais evidências há de contraste/foco?** Produção registrou texto do input 10,557:1, link externo 5,579:1 e borda 3,051:1 contra página/3,173:1 contra campo. Há teste de :focus-visible e outline sólido 2px. Axe completo passou nas duas páginas; isso não equivale a auditoria WCAG integral em todos os leitores de tela.
+
+**Os testes realmente usam o GitHub?** Os 34 Vitest e 12 E2E são determinísticos com mocks/interceptação. A integração pública e scripts/audit-academic.mjs são separados, sem token e sem mocks. O JSON registra requisições reais de Users, Search API e detalhe, além de duas páginas 6+4 e busca React=3. A reexecução de 12 E2E na URL publicada não adiciona 12 cenários únicos ao total 46.
+
+**O GitHub Actions vermelho reprova?** A seção 14 lista pipeline de CI como extra opcional, sem peso próprio nem condição eliminatória. O job sequer iniciou por bloqueio de faturamento da conta. Os logs locais/publicados estão disponíveis. Não se deve declarar CI aprovada nem esconder o bloqueio. A explicação se baseia no enunciado atual; regras adicionais do Blackboard precisam ser conferidas.
+
+**A nota estimada é garantida?** Não. A matriz usa os nove critérios e seus máximos oficiais para projetar 97/100; 8/10 visual e 4/5 na categoria final reservam riscos de aproximação e validação/explicação pessoal. Esses descontos não são subpesos oficiais. Sem apresentação/explicação ou outra condição mínima, a seção 13 pode impedir aprovação independentemente da projeção.
+
+**O uso de IA está completo?** Há mais de três registros estruturados de prompts reais, resultados, ajustes e verificação do agente. A verificação pelo aluno não pode ser inventada: preencher pessoalmente o formulário de AI_USAGE.md após executar as ações e revisar código/issues. O professor pode pedir explicações de qualquer trecho.
+
+**Onde estão as pendências de entrega?** Em ENTREGA_BLACKBOARD.md: conferir prazo/instruções na plataforma, enviar os dois links, guardar comprovante, revisar evidências e apresentar. Não foi inventada exigência de ZIP, vídeo, PDF ou duração obrigatória.

@@ -1,0 +1,21 @@
+
+> github-blog@1.0.0 test:e2e
+> playwright test
+
+
+Running 12 tests using 2 workers
+
+  ok  1 [chromium] › tests\e2e\blog.spec.ts:16:1 › busca, paginação, detalhes, reload e retorno (4.4s)
+  ok  2 [chromium] › tests\e2e\blog.spec.ts:41:1 › vazio, limpeza e 404 (4.5s)
+  ok  3 [chromium] › tests\e2e\blog.spec.ts:53:1 › logotipo limpa a consulta e o histórico restaura a pesquisa correta (1.4s)
+  ok  4 [chromium] › tests\e2e\blog.spec.ts:68:1 › erro da API, limite, rede e retry (1.6s)
+  ok  6 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 375px (1.6s)
+  ok  5 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 320px (1.9s)
+  ok  8 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 768px (2.4s)
+  ok  7 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 390px (2.4s)
+  ok  9 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 1024px (2.0s)
+  ok 10 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 1440px (2.1s)
+  ok 11 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 1920px (2.1s)
+  ok 12 [chromium] › tests\e2e\blog.spec.ts:89:1 › teclado e auditoria automatizada WCAG 2.2 AA (7.0s)
+
+  12 passed (23.2s)

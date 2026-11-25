@@ -1,5 +1,7 @@
 # Auditoria da rubrica oficial
 
+**Revisão atual:** consultar [AUDITORIA_FINAL.md](AUDITORIA_FINAL.md), que usa os mesmos pesos, amplia evidências, registra correções e atende à solicitação posterior de estimar nota. Projeção técnica condicional: **97/100 (9,7)**, não nota garantida. Os estados/quantidades desta matriz inicial abaixo são históricos; validação atual tem 34 Vitest + 12 E2E e axe completo, com revisão pessoal do aluno ainda pendente.
+
 Fonte: Notion, seções 12 e 13, lidas via navegador MCP; pontuações oficiais, não estimadas. As classificações abaixo são auditoria técnica, não atribuição de nota. A avaliação visual e a apresentação dependem do professor/aluno.
 
 | Critério | Pontuação oficial | Implementação | Arquivo | Teste | Evidência | Status |
@@ -21,6 +23,6 @@ Fonte: Notion, seções 12 e 13, lidas via navegador MCP; pontuações oficiais,
 - [ ] Obter 71/100 ou mais (não verificável; nota exclusiva do professor).
 
 ## Estimativa e limites
-Não é apresentada nota numérica como previsão: componentes subjetivos da correção visual, avaliação da originalidade/revisão das issues e apresentação individual não podem ser pontuados pelo agente. Os pesos oficiais somam 100, mas marcar um critério como Atendido não equivale a receber automaticamente sua pontuação integral. Não há garantia de aprovação mesmo com testes passando.
+Na primeira revisão não foi apresentada nota numérica por esses limites subjetivos. A solicitação posterior do usuário exige estimativa; a nova matriz em AUDITORIA_FINAL.md projeta 97/100, esclarece reservas discricionárias e mantém a apresentação/validação pessoal como pendentes. Os pesos oficiais somam 100, mas marcar um critério como Atendido não equivale a receber automaticamente sua pontuação integral. Não há garantia de aprovação mesmo com testes passando.
 
 As issues foram redigidas para este projeto com apoio explícito de IA, publicadas na conta do aluno; ele deve revisar o conteúdo e explicá-lo. Blackboard: prazo/data e regras gerais de frequência não verificados. As capturas e resultados mencionados estão em docs/evidencias/.

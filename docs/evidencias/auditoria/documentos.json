@@ -1,0 +1,27 @@
+{
+  "type": "Structural checks supplement manual review; not an official grade",
+  "officialCriteria": 9,
+  "maximum": 100,
+  "estimate": 97,
+  "gradeProjection": 9.7,
+  "requiredArtifacts": [
+    "docs/PRD_SPEC.md",
+    "docs/TECH_SPEC.md",
+    "docs/TASKS_SPEC.md",
+    "AGENTS.md",
+    "docs/AI_USAGE.md",
+    "README.md",
+    "package-lock.json",
+    "docs/AUDITORIA_FINAL.md",
+    "docs/ENTREGA_BLACKBOARD.md",
+    "docs/APRESENTACAO.md",
+    "docs/evidencias/auditoria/home-desktop.png",
+    "docs/evidencias/auditoria/busca-desktop.png",
+    "docs/evidencias/auditoria/detalhe-desktop.png",
+    "docs/evidencias/auditoria/home-mobile.png",
+    "docs/evidencias/auditoria/detalhe-mobile.png"
+  ],
+  "aiEntries": 5,
+  "studentValidation": "pending, not fabricated",
+  "result": "PASS"
+}

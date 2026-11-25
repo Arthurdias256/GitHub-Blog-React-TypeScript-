@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-11-25T16:43:01.139Z",
+  "sourceCommit": "542aaf4cd41c8c1491934c6fc73bf338945d3483",
+  "baseURL": "https://github-blog-arthurdias256.vercel.app",
+  "mocked": false,
+  "github": {
+    "public": true,
+    "htmlURL": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-",
+    "issues": [
+      {
+        "number": 10,
+        "title": "Markdown e documentação: conteúdo técnico legível no GitHub Blog",
+        "author": "Arthurdias256",
+        "markdownLength": 1218,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/10"
+      },
+      {
+        "number": 9,
+        "title": "Segurança em uma SPA: variáveis públicas não guardam segredos",
+        "author": "Arthurdias256",
+        "markdownLength": 1167,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/9"
+      },
+      {
+        "number": 8,
+        "title": "Git: commits pequenos contam a história de uma solução",
+        "author": "Arthurdias256",
+        "markdownLength": 1063,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/8"
+      },
+      {
+        "number": 7,
+        "title": "Testes automatizados: confiança além do caminho feliz",
+        "author": "Arthurdias256",
+        "markdownLength": 1112,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/7"
+      },
+      {
+        "number": 6,
+        "title": "Acessibilidade: teclado, foco e mensagens que fazem sentido",
+        "author": "Arthurdias256",
+        "markdownLength": 1157,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/6"
+      },
+      {
+        "number": 5,
+        "title": "React Router: URLs que representam o conteúdo do blog",
+        "author": "Arthurdias256",
+        "markdownLength": 1147,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/5"
+      },
+      {
+        "number": 4,
+        "title": "Tailwind CSS: responsividade sem perder a identidade visual",
+        "author": "Arthurdias256",
+        "markdownLength": 1132,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/4"
+      },
+      {
+        "number": 3,
+        "title": "Axios e REST: consultas canceláveis ao GitHub",
+        "author": "Arthurdias256",
+        "markdownLength": 1225,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/3"
+      },
+      {
+        "number": 2,
+        "title": "TypeScript: contratos claros para respostas de APIs",
+        "author": "Arthurdias256",
+        "markdownLength": 1167,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/2"
+      },
+      {
+        "number": 1,
+        "title": "React: componentes, Props e uma interface que evolui",
+        "author": "Arthurdias256",
+        "markdownLength": 1084,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/1"
+      }
+    ],
+    "distinctBodies": true,
+    "intellectualAuthorship": "Não inferida apenas pelo login; conteúdo com IA deve ser revisado pelo aluno."
+  },
+  "historySecurity": {
+    "commits": 17,
+    "matchingFiles": [],
+    "limitation": "Heurística por padrões, não certificação de ausência de todo segredo possível."
+  },
+  "hosting": {
+    "homeStatus": 200,
+    "directDetailStatus": 200,
+    "assets": [
+      {
+        "url": "https://github-blog-arthurdias256.vercel.app/assets/index-CRdFPUbE.js",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8"
+      },
+      {
+        "url": "https://github-blog-arthurdias256.vercel.app/assets/index-DCGPHhOL.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8"
+      }
+    ],
+    "headers": {
+      "contentType": "text/html; charset=utf-8",
+      "nosniff": "nosniff",
+      "frame": "DENY"
+    },
+    "credentialPatternsInInspectedAssets": false
+  },
+  "accessibility": [
+    {
+      "path": "/",
+      "mode": "axe completo, incluindo heading-order e color-contrast",
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "targets": [
+            [
+              "a[aria-labelledby=\"issue-title-6608460650\"]"
+            ],
+            [
+              "a[aria-labelledby=\"issue-title-6608446036\"]"
+            ],
+            [
+              "a[aria-labelledby=\"issue-title-6608445729\"]"
+            ],
+            [
+              "a[aria-labelledby=\"issue-title-6608445380\"]"
+            ],
+            [
+              "a[aria-labelledby=\"issue-title-6608443641\"]"
+            ],
+            [
+              "a[aria-labelledby=\"issue-title-6608400387\"]"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "responsiveness": [],
+  "result": "FAIL",
+  "error": "Violações axe em /\n\n1 !== 0\n"
+}

@@ -6,7 +6,7 @@ Blog técnico desenvolvido para a recuperação individual de **Single Page Appl
 
 **[Repositório público](https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-) · [Dez publicações reais](https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues)**
 
-**[Aplicação publicada na Vercel](https://github-blog-arthurdias256.vercel.app)** — Home, busca, páginas 6+4, detalhe/reload e mobile verificados com API pública real. [Evidências de produção](docs/evidencias/producao/).
+**[Aplicação publicada na Vercel](https://github-blog-arthurdias256.vercel.app)** — Home, busca, páginas 6+4, detalhe/reload e mobile verificados com API pública real. [Evidências atuais de produção](docs/evidencias/auditoria/).
 
 ## Funcionalidades
 - Perfil real com avatar, bio, usuário, empresa quando disponível e seguidores.
@@ -19,13 +19,13 @@ Blog técnico desenvolvido para a recuperação individual de **Single Page Appl
 ## Screenshots reais
 Capturadas em navegador com API pública, sem fixtures. Mais evidências em [docs/evidencias](docs/evidencias/).
 
-![Home desktop](docs/evidencias/home-desktop.png)
+![Home desktop](docs/evidencias/auditoria/home-desktop.png)
 
 <details><summary>Busca, detalhe e mobile</summary>
 
-![Busca](docs/evidencias/busca-desktop.png)
-![Detalhe](docs/evidencias/detalhe-desktop.png)
-![Home mobile](docs/evidencias/home-mobile.png)
+![Busca](docs/evidencias/auditoria/busca-desktop.png)
+![Detalhe](docs/evidencias/auditoria/detalhe-desktop.png)
+![Home mobile](docs/evidencias/auditoria/home-mobile.png)
 
 </details>
 
@@ -61,7 +61,7 @@ npm run preview
 ```
 `typecheck`/build executam `tsc -b`, verificando os projetos app e ferramentas; o comando isolado `tsc --noEmit` da raiz não substitui essa verificação porque a raiz contém references.
 
-**Resultados locais atuais:** 31 testes Vitest + 11 Playwright aprovados, zero falhas finais; lint/types/build aprovados. E2E cobre Home/detalhe em 320, 375, 390, 768, 1024, 1440 e 1920px, teclado e axe. Isso não equivale a conformidade integral WCAG. Testes padrão usam MSW/interceptação, sem depender permanentemente do GitHub.
+**Resultados locais atuais:** **34 testes Vitest + 12 Playwright aprovados**, zero falhas finais; lint/types/build aprovados após npm ci. Os mesmos 12 E2E passaram na URL de produção. E2E cobre Home/detalhe em 320, 375, 390, 768, 1024, 1440 e 1920px, teclado, contraste/foco e axe completo. Isso não equivale a conformidade integral WCAG. Testes padrão usam MSW/interceptação, sem depender permanentemente do GitHub; a auditoria pública real é separada.
 
 Integração pública real, separada:
 ```bash
@@ -94,6 +94,8 @@ Configuração Vercel validada: Vite, `npm ci`, `npm run build`, saída `dist`, 
 - [TECH — decisões, versões e arquitetura](docs/TECH_SPEC.md)
 - [TASKS — etapas e commits](docs/TASKS_SPEC.md)
 - [Matriz da rubrica oficial](docs/RUBRICA.md)
+- [Auditoria final: rubrica, estimativa e condições mínimas](docs/AUDITORIA_FINAL.md)
+- [Checklist específico de entrega no Blackboard](docs/ENTREGA_BLACKBOARD.md)
 - [Relatório final e resultados verificáveis](docs/RELATORIO_FINAL.md)
 - [Uso de IA — evidências reais](docs/AI_USAGE.md)
 - [Roteiro para apresentação individual](docs/APRESENTACAO.md)
@@ -109,3 +111,7 @@ O enunciado principal (seções 1–14), a rubrica e as condições da seção 1
 **GitHub Actions:** workflow enviado, mas a execução remota não iniciou nenhum step por bloqueio de faturamento da conta GitHub. Resolver em configurações/suporte da conta e reexecutar Actions; não se trata de teste reprovado. [Evidência](docs/evidencias/github-actions.json). Isso não bloqueou o push nem o deploy Vercel verificado.
 
 Auditoria completa reproduzível: `node scripts/validate.mjs` (inclui npm ci, suíte e integração pública; exige Node 24, Chromium instalado, Git e rede). Saídas reais: [validacao-final.txt](docs/evidencias/validacao-final.txt) e [validacao-final.json](docs/evidencias/validacao-final.json). Para E2E contra produção, defina `PLAYWRIGHT_BASE_URL=https://github-blog-arthurdias256.vercel.app` antes de `npm run test:e2e`; os cenários HTTP continuam determinísticos com interceptação. As capturas em `producao/` usam API real sem interceptação.
+
+Nova auditoria pública reproduzível: `node scripts/audit-academic.mjs` (sem token/mocks; API, assets, histórico, axe completo, contraste/foco e sete larguras). Gera [verificacao-publica.json](docs/evidencias/auditoria/verificacao-publica.json) e screenshots. As correções pré-entrega foram limitadas ao logotipo/busca, headings Markdown, nome acessível dos cards, contorno do campo e prefixo @. Grade/cores gerais/funcionalidades foram preservadas.
+
+A estimativa fundamentada é **97/100 (9,7)** nos pesos oficiais, **não nota atribuída nem aprovação garantida**. Reservas visuais e validação/explicação pessoal constam na auditoria. O aluno precisa preencher verificações reais em AI_USAGE.md, conferir Blackboard e apresentar individualmente.

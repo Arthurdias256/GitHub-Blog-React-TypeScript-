@@ -2,6 +2,8 @@
 
 Ferramenta: OpenCode, assistente GPT-6.1 Sol Fast. Este documento usa o nome exigido pelo Notion; o registro inicial em [IA_USAGE.md](IA_USAGE.md) é preservado. Os prompts abaixo são trechos literais de mensagens reais, não conversas inventadas. O histórico integral permanece na sessão; exportação manual da conversa é recomendada como evidência complementar.
 
+**Situação após nova auditoria:** os resultados das evidências 1–4 abaixo são históricos. A suíte atual tem **34 Vitest + 12 E2E** aprovados. A estrutura/quantidade de registros foi conferida contra a seção 8; a **verificação pelo aluno permanece pendente**, conforme formulário final. Não confundir teste executado pelo agente com validação pessoal exigida pelo professor.
+
 ## Evidência 1 — levantamento e desbloqueio
 - **Contexto/prompt real inicial:** “Primeiramente, inspecione a pasta atual e consulte integralmente o Notion e o Figma através dos mecanismos MCP disponíveis.”
 - **Objetivo:** identificar requisitos sem fabricar rubrica ou sobrescrever trabalho.
@@ -35,3 +37,24 @@ Ferramenta: OpenCode, assistente GPT-6.1 Sol Fast. Este documento usa o nome exi
 
 ## O que não foi inventado
 Não há garantia de nota, conformidade integral WCAG ou comparação pixel-perfect. Não há registro de conhecimento pessoal do aluno nem apresentação já realizada. Nenhum token está no código/README/VITE_*. Capturas representam a aplicação e referências reais, não mockups fabricados.
+
+## Evidência 5 — auditoria pré-entrega solicitada pelo usuário
+- **Contexto/prompt real:** “Realize uma auditoria final completa do projeto GitHub Blog antes da entrega acadêmica.” e “Corrija somente os problemas identificados.”
+- **Objetivo:** reler o Notion/Figma, confrontar rubrica, corrigir apenas achados, repetir testes e criar checklist de entrega/roteiro.
+- **Consultas reais:** navegador MCP releu seções 1–14 com rolagem e leituras adicionais para virtualização; Figma Projeto foi recapturado. API pública confirmou dez issues próprias e Actions bloqueado sem steps. Nenhum acesso ao Blackboard foi declarado.
+- **Resultados e ajustes:** corrigidos retorno pelo logotipo, headings, contraste da borda/@ e semântica dos cards após falhas reais. SPEC explicitados no formato de conteúdo da seção 7. Dois testes de regressão falharam antes e passaram depois. A auditoria axe completa com dados reais encontrou label-content-name-mismatch que o filtro anterior não abrangia; teste foi ampliado, sem desligar regras.
+- **Verificação executada pelo agente:** npm ci, lint, tsc --noEmit/tsc -b, 34 Vitest, 12 E2E, build, API, audit e scanner aprovados. Após republicar, os mesmos 12 E2E passaram; script real confirmou axe completo sem violações, 14 combinações página/largura, contraste/foco, histórico/assets sem padrões de credencial. Evidências em auditoria/verificacao-publica.json, antes-correcao-cards.json, deploy.txt/e2e-producao.txt e screenshots. Commits de correções 5836af6/542aaf4/b93554b.
+- **Estimativa:** docs/AUDITORIA_FINAL.md projeta 97/100 usando só máximos oficiais, com reservas de julgamento explícitas, sem declarar nota do professor nem apresentação concluída.
+- **Verificação pelo aluno:** **pendente**. Revisar as correções, executar a demonstração e registrar abaixo resultados reais. Nenhuma dessas ações foi preenchida pelo agente como se fosse o aluno.
+
+## Registro pessoal do aluno — preencher somente após realizar
+O Notion exige contexto/prompt, objetivo, resultado, ajustes e **verificação pelo aluno** em pelo menos três evidências. Os registros acima têm os primeiros campos e indicam a pendência final. Escolha ao menos três, execute uma ação verificável e complete a tabela com suas próprias palavras. Nome/data/resultados não devem ser preenchidos pelo agente.
+
+| Evidência | Ação de verificação sugerida | Data e identificação do aluno | Resultado observado pessoalmente / ajustes necessários |
+|---|---|---|---|
+| 1 — levantamento | Comparar RF/RN e rubrica com o Notion; localizar SPEC/AGENTS no histórico | Pendente | Pendente |
+| 2 — implementação | Explicar Home/useResource/getIssue e revisar as dez issues; abrir fluxo real | Pendente | Pendente |
+| 3 — testes | Executar testes/lint/types e conferir ao menos um caso de busca, detalhe e falha | Pendente | Pendente |
+| 5 — auditoria | Testar logotipo/back/forward, clique no padding, foco e headings após correção | Pendente | Pendente |
+
+Captura/exportação integral da sessão pode complementar, mas o enunciado consultado não determina um formato de imagem/log exclusivo para cada evidência. Não fabricar prints ou assinaturas para substituir a revisão.

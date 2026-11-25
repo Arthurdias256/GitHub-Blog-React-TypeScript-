@@ -13,5 +13,5 @@ export default tseslint.config(
   { files: ['src/**/*.{ts,tsx}'], plugins: { 'react-hooks': reactHooks, 'react-refresh': reactRefresh },
     rules: { ...reactHooks.configs.recommended.rules, 'react-refresh/only-export-components': ['warn', { allowConstantExport: true }] } },
   { files: ['**/*.{js,mjs}'], languageOptions: { globals: globals.node } },
-  { files: ['scripts/capture-evidence.mjs'], languageOptions: { globals: { ...globals.node, ...globals.browser } } },
+  { files: ['scripts/capture-evidence.mjs', 'scripts/audit-academic.mjs'], languageOptions: { globals: { ...globals.node, ...globals.browser } } },
 )

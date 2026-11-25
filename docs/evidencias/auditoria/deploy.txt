@@ -1,0 +1,75 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_29GBthq9wSLriZ21ttPkP152HjdB",
+    "url": "https://github-blog-arthurdias256-i53ey71a2-arthurdias256.vercel.app",
+    "inspectorUrl": "https://vercel.com/arthurdias256/github-blog-arthurdias256/29GBthq9wSLriZ21ttPkP152HjdB",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_29GBthq9wSLriZ21ttPkP152HjdB"
+  },
+  "message": "Deployment github-blog-arthurdias256-i53ey71a2-arthurdias256.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect github-blog-arthurdias256-i53ey71a2-arthurdias256.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}
+Retrieving project…
+Deploying arthurdias256/github-blog-arthurdias256
+Uploading [--------------------] (0.0B/611.4KB)
+Uploading [=====---------------] (164.4KB/611.4KB)
+Uploading [==========----------] (311.8KB/611.4KB)
+Uploading [===============-----] (471.8KB/611.4KB)
+Uploading [====================] (611.4KB/611.4KB)
+Inspect: https://vercel.com/arthurdias256/github-blog-arthurdias256/29GBthq9wSLriZ21ttPkP152HjdB [3s]
+Production: https://github-blog-arthurdias256-i53ey71a2-arthurdias256.vercel.app [3s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Downloading 94 deployment files...
+Building: Restored build cache from previous deployment (FkRDWrUgZtazkZXd2Rki5AXQ65Mb)
+Building: Running "vercel build"
+Building: Vercel CLI 66.6.0
+Building: Running "install" command: `npm ci`...
+Building: npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+Building: npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Building: added 441 packages, and audited 448 packages in 8s
+Building: 165 packages are looking for funding
+Building: run `npm fund` for details
+Building: found 0 vulnerabilities
+Building: npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+Building: npm warn install-scripts   msw@2.15.0 (postinstall: node -e "import('./config/scripts/postinstall.js').catch(() => void 0)")
+Building: npm warn install-scripts
+Building: npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+Building: npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+Building: > github-blog@1.0.0 build
+Building: > tsc -b && vite build
+Building: vite v8.3.8 building client environment for production...
+Building: transforming...
+Building: ✓ 1899 modules transformed.
+Building: rendering chunks...
+Building: computing gzip size...
+Building: dist/index.html                                       0.57 kB │ gzip:   0.35 kB
+Building: dist/assets/nunito-latin-700-normal-Dort48En.woff2   16.22 kB
+Building: dist/assets/nunito-latin-400-normal-r8SDr6Up.woff2   16.31 kB
+Building: dist/assets/nunito-latin-700-normal-OcDqTBcA.woff    19.98 kB
+Building: dist/assets/nunito-latin-400-normal-DKg4f3fz.woff    20.33 kB
+Building: dist/assets/index-D3XC1dq4.css                       22.01 kB │ gzip:   5.20 kB
+Building: dist/assets/PostDetails-DOCiIA6o.js                 167.55 kB │ gzip:  50.50 kB
+Building: dist/assets/index-cFG0RNpx.js                       335.90 kB │ gzip: 110.38 kB
+Building: ✓ built in 605ms
+Building: Build Completed in /vercel/output [12s]
+Building: Deploying outputs...
+Building: Deployment completed
+Building: Creating build cache...
+[2K[1A[2K[GProduction: https://github-blog-arthurdias256-i53ey71a2-arthurdias256.vercel.app [24s]
+Completing...
+Aliased: https://github-blog-arthurdias256.vercel.app [24s]

@@ -82,6 +82,8 @@ Público-alvo adotado como decisão de produto: leitores de conteúdo técnico e
 ## Rastreabilidade e aprovação
 Matriz oficial completa com pontuação, arquivos, testes, evidências e status: [RUBRICA.md](RUBRICA.md). Testes: src/tests/app.test.tsx, src/tests/utils.test.ts e tests/e2e/blog.spec.ts. Implementações/decisões: TECH_SPEC.md. Commits/checklist: TASKS_SPEC.md. A nota final e a apresentação individual não podem ser atestadas pelo agente.
 
+Revisão mais recente e estimativa solicitada pelo usuário: [AUDITORIA_FINAL.md](AUDITORIA_FINAL.md). Pesos oficiais preservados; projeção técnica condicional 97/100, sem transformar reservas subjetivas em penalidades oficiais. Seção 13 continua exigindo nota efetiva, entrega pública e apresentação/explicação pessoal.
+
 Auditoria complementar RF-09/11/16: logotipo deve efetivamente retornar ao catálogo sem restaurar consulta obsoleta; headings do corpo devem começar abaixo do h1 do post, sem saltos. Casos reproduzidos, corrigidos e cobertos por regressões, sem alterar o escopo do produto.
 
 RF-02/16: exibir prefixo @ do identificador e garantir contraste do contorno de busca. Ajuste limitado à borda azul-acinzentada do campo para atingir 3:1 entre superfícies adjacentes, mantendo identidade e layout.

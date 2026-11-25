@@ -9,6 +9,8 @@ O usuário autorizou implementar com limitações de referência. Na continuaç�
 - O Notion prevalece em divergências. Não declarar leitura integral com acesso parcial.
 
 ## Implementação e manutenção
+Antes da entrega, consultar também docs/AUDITORIA_FINAL.md e docs/ENTREGA_BLACKBOARD.md. Preservar correções de sincronização query/draft, headings por AST e card com Link estendido (título como nome acessível, conteúdo fora do Link). Executar axe completo, não apenas subset de tags, e manter testes de histórico/clique no padding/contraste/foco. Não preencher validação pessoal de IA, comprovante do Blackboard ou apresentação em nome do aluno. CI é extra opcional na seção 14; bloqueio da conta deve ser relatado, nunca contornado por remoção de checks ou mudança de cobrança.
+
 React, TypeScript estrito, Vite 8.x, Tailwind CSS, Axios, React Router, npm e ESLint. Não usar Next.js, fetch no lugar de Axios nem segredos em VITE_*. Confirmar versões e compatibilidade antes de instalar. Preservar package-lock.json.
 
 Separar componentes, páginas, serviços, tipos e hooks sem arquitetura excessiva. Integrar endpoints reais do GitHub; excluir pull requests. Testes determinísticos com mocks, separados de verificações reais de API. Validar teclado, estados de erro e larguras de 320 a 1920 px.

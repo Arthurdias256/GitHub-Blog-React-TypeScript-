@@ -1,5 +1,7 @@
 # Relatório final — GitHub Blog
 
+**Registro histórico da primeira entrega técnica (até ed78ce9).** Nova revisão pré-entrega, resultados atuais **34 Vitest + 12 E2E**, estimativa fundamentada, correções e checklist: [AUDITORIA_FINAL.md](AUDITORIA_FINAL.md) e [ENTREGA_BLACKBOARD.md](ENTREGA_BLACKBOARD.md). Os números e limitações descritos abaixo preservam o estado efetivamente verificado naquela etapa, não substituem a auditoria mais recente.
+
 ## Resultado
 SPA implementada e publicada: **https://github-blog-arthurdias256.vercel.app**.
 

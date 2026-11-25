@@ -1,0 +1,271 @@
+{
+  "timestamp": "2026-11-25T16:52:34.213Z",
+  "sourceCommit": "b93554b1dd2e0d1ec29cb1e607b51c6fab89037c",
+  "baseURL": "https://github-blog-arthurdias256.vercel.app",
+  "mocked": false,
+  "github": {
+    "public": true,
+    "htmlURL": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-",
+    "issues": [
+      {
+        "number": 10,
+        "title": "Markdown e documentação: conteúdo técnico legível no GitHub Blog",
+        "author": "Arthurdias256",
+        "markdownLength": 1218,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/10"
+      },
+      {
+        "number": 9,
+        "title": "Segurança em uma SPA: variáveis públicas não guardam segredos",
+        "author": "Arthurdias256",
+        "markdownLength": 1167,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/9"
+      },
+      {
+        "number": 8,
+        "title": "Git: commits pequenos contam a história de uma solução",
+        "author": "Arthurdias256",
+        "markdownLength": 1063,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/8"
+      },
+      {
+        "number": 7,
+        "title": "Testes automatizados: confiança além do caminho feliz",
+        "author": "Arthurdias256",
+        "markdownLength": 1112,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/7"
+      },
+      {
+        "number": 6,
+        "title": "Acessibilidade: teclado, foco e mensagens que fazem sentido",
+        "author": "Arthurdias256",
+        "markdownLength": 1157,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/6"
+      },
+      {
+        "number": 5,
+        "title": "React Router: URLs que representam o conteúdo do blog",
+        "author": "Arthurdias256",
+        "markdownLength": 1147,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/5"
+      },
+      {
+        "number": 4,
+        "title": "Tailwind CSS: responsividade sem perder a identidade visual",
+        "author": "Arthurdias256",
+        "markdownLength": 1132,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/4"
+      },
+      {
+        "number": 3,
+        "title": "Axios e REST: consultas canceláveis ao GitHub",
+        "author": "Arthurdias256",
+        "markdownLength": 1225,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/3"
+      },
+      {
+        "number": 2,
+        "title": "TypeScript: contratos claros para respostas de APIs",
+        "author": "Arthurdias256",
+        "markdownLength": 1167,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/2"
+      },
+      {
+        "number": 1,
+        "title": "React: componentes, Props e uma interface que evolui",
+        "author": "Arthurdias256",
+        "markdownLength": 1084,
+        "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/1"
+      }
+    ],
+    "distinctBodies": true,
+    "intellectualAuthorship": "Não inferida apenas pelo login; conteúdo com IA deve ser revisado pelo aluno."
+  },
+  "historySecurity": {
+    "commits": 18,
+    "matchingFiles": [],
+    "limitation": "Heurística por padrões, não certificação de ausência de todo segredo possível."
+  },
+  "hosting": {
+    "homeStatus": 200,
+    "directDetailStatus": 200,
+    "assets": [
+      {
+        "url": "https://github-blog-arthurdias256.vercel.app/assets/index-cFG0RNpx.js",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8"
+      },
+      {
+        "url": "https://github-blog-arthurdias256.vercel.app/assets/PostDetails-DOCiIA6o.js",
+        "status": 200,
+        "contentType": "application/javascript; charset=utf-8"
+      },
+      {
+        "url": "https://github-blog-arthurdias256.vercel.app/assets/index-D3XC1dq4.css",
+        "status": 200,
+        "contentType": "text/css; charset=utf-8"
+      }
+    ],
+    "headers": {
+      "contentType": "text/html; charset=utf-8",
+      "nosniff": "nosniff",
+      "frame": "DENY"
+    },
+    "credentialPatternsInInspectedAssets": false
+  },
+  "accessibility": [
+    {
+      "path": "/",
+      "mode": "axe completo, incluindo heading-order e color-contrast",
+      "violations": []
+    },
+    {
+      "path": "/post/10",
+      "mode": "axe completo, incluindo heading-order e color-contrast",
+      "violations": []
+    }
+  ],
+  "responsiveness": [
+    {
+      "path": "/",
+      "width": 320,
+      "viewport": 320,
+      "document": 320
+    },
+    {
+      "path": "/",
+      "width": 375,
+      "viewport": 375,
+      "document": 375
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "viewport": 768,
+      "document": 768
+    },
+    {
+      "path": "/",
+      "width": 1024,
+      "viewport": 1024,
+      "document": 1024
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440
+    },
+    {
+      "path": "/",
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920
+    },
+    {
+      "path": "/post/10",
+      "width": 320,
+      "viewport": 320,
+      "document": 320
+    },
+    {
+      "path": "/post/10",
+      "width": 375,
+      "viewport": 375,
+      "document": 375
+    },
+    {
+      "path": "/post/10",
+      "width": 390,
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "path": "/post/10",
+      "width": 768,
+      "viewport": 768,
+      "document": 768
+    },
+    {
+      "path": "/post/10",
+      "width": 1024,
+      "viewport": 1024,
+      "document": 1024
+    },
+    {
+      "path": "/post/10",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440
+    },
+    {
+      "path": "/post/10",
+      "width": 1920,
+      "viewport": 1920,
+      "document": 1920
+    }
+  ],
+  "contrast": {
+    "fieldBorder": "rgb(72, 101, 129)",
+    "borderAgainstPage": 3.051,
+    "borderAgainstField": 3.173,
+    "inputText": 10.557,
+    "externalLink": 5.579
+  },
+  "focus": {
+    "focused": true,
+    "visible": true,
+    "outlineStyle": "solid",
+    "outlineWidth": "2px"
+  },
+  "liveNavigation": {
+    "searchReact": 3,
+    "logoClearsQuery": true,
+    "secondPage": 4,
+    "url": "https://github-blog-arthurdias256.vercel.app/?page=2"
+  },
+  "responses": [
+    {
+      "url": "https://api.github.com/users/Arthurdias256",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue+%22React%22&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=2&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/repos/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/10",
+      "status": 200
+    }
+  ],
+  "actions": {
+    "url": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/actions/runs/45653281397",
+    "commit": "ed78ce966437a9868d8fc7f4b7be3af2768d082c",
+    "status": "completed",
+    "conclusion": "failure",
+    "steps": [],
+    "annotations": [
+      "The job was not started because your account is locked due to a billing issue."
+    ],
+    "mandatoryInNotion": false
+  },
+  "result": "PASS — verificações técnicas; pendências acadêmicas e CI descritas separadamente"
+}

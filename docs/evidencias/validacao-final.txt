@@ -1,4 +1,4 @@
-Validação real — 2026-11-25T16:13:46.163Z
+Validação real — 2026-11-25T16:47:46.503Z
 Node v24.11.1
 
 $ npm ci
@@ -58,9 +58,9 @@ $ npm run test
 
 
  Test Files  2 passed (2)
-      Tests  31 passed (31)
-   Start at  13:15:59
-   Duration  23.68s (tests 42%, environment 31%, setup 16%, import 7%, transform 3%)
+      Tests  34 passed (34)
+   Start at  13:49:45
+   Duration  24.61s (tests 42%, environment 34%, setup 15%, import 6%, transform 3%)
 
 
 Exit code: 0
@@ -71,21 +71,22 @@ $ npm run test:e2e
 > playwright test
 
 
-Running 11 tests using 2 workers
+Running 12 tests using 2 workers
 
-  ok  2 [chromium] › tests\e2e\blog.spec.ts:16:1 › busca, paginação, detalhes, reload e retorno (8.9s)
-  ok  1 [chromium] › tests\e2e\blog.spec.ts:34:1 › vazio, limpeza e 404 (10.2s)
-  ok  3 [chromium] › tests\e2e\blog.spec.ts:46:1 › erro da API, limite, rede e retry (2.6s)
-  ok  4 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 320px (3.9s)
-  ok  5 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 375px (4.3s)
-  ok  6 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 390px (4.0s)
-  ok  7 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 768px (4.0s)
-  ok  8 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 1024px (4.0s)
-  ok  9 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 1440px (3.8s)
-  ok 10 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 1920px (3.9s)
-  ok 11 [chromium] › tests\e2e\blog.spec.ts:67:1 › teclado e auditoria automatizada WCAG 2.2 AA (7.4s)
+  ok  1 [chromium] › tests\e2e\blog.spec.ts:16:1 › busca, paginação, detalhes, reload e retorno (7.6s)
+  ok  2 [chromium] › tests\e2e\blog.spec.ts:41:1 › vazio, limpeza e 404 (8.5s)
+  ok  3 [chromium] › tests\e2e\blog.spec.ts:53:1 › logotipo limpa a consulta e o histórico restaura a pesquisa correta (2.8s)
+  ok  4 [chromium] › tests\e2e\blog.spec.ts:68:1 › erro da API, limite, rede e retry (2.7s)
+  ok  5 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 320px (4.3s)
+  ok  6 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 375px (4.1s)
+  ok  7 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 390px (4.2s)
+  ok  8 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 768px (4.5s)
+  ok  9 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 1024px (4.4s)
+  ok 10 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 1440px (4.2s)
+  ok 11 [chromium] › tests\e2e\blog.spec.ts:80:3 › Home e detalhe sem overflow em 1920px (4.1s)
+  ok 12 [chromium] › tests\e2e\blog.spec.ts:89:1 › teclado e auditoria automatizada WCAG 2.2 AA (8.9s)
 
-  11 passed (43.5s)
+  12 passed (44.2s)
 
 Exit code: 0
 
@@ -96,19 +97,19 @@ $ npm run build
 
 [36mvite v8.3.8 [32mbuilding client environment for production...[36m[39m
 transforming...
-✓ 1898 modules transformed.
+✓ 1899 modules transformed.
 rendering chunks...
 computing gzip size...
-dist/index.html                                       0.57 kB │ gzip:   0.36 kB
+dist/index.html                                       0.57 kB │ gzip:   0.35 kB
 dist/assets/nunito-latin-700-normal-Dort48En.woff2   16.22 kB
 dist/assets/nunito-latin-400-normal-r8SDr6Up.woff2   16.31 kB
 dist/assets/nunito-latin-700-normal-OcDqTBcA.woff    19.98 kB
 dist/assets/nunito-latin-400-normal-DKg4f3fz.woff    20.33 kB
-dist/assets/index-BN3-2c5x.css                       19.16 kB │ gzip:   4.65 kB
-dist/assets/PostDetails-B5pByt7s.js                 167.52 kB │ gzip:  50.46 kB
-dist/assets/index-BD0bmYj0.js                       335.95 kB │ gzip: 110.36 kB
+dist/assets/index-JvlrZc_b.css                       19.81 kB │ gzip:   4.77 kB
+dist/assets/PostDetails-F3iwLTHF.js                 167.55 kB │ gzip:  50.50 kB
+dist/assets/index-BIFjSIyq.js                       335.90 kB │ gzip: 110.38 kB
 
-[32m✓ built in 1.62s[39m
+[32m✓ built in 1.81s[39m
 
 Exit code: 0
 
@@ -139,6 +140,6 @@ found 0 vulnerabilities
 Exit code: 0
 
 $ node scripts/audit-secrets.mjs
-PASS: 76 arquivos candidatos ao Git verificados; nenhum padrão de credencial encontrado. Esta verificação não substitui revisão humana.
+PASS: 85 arquivos candidatos ao Git verificados; nenhum padrão de credencial encontrado. Esta verificação não substitui revisão humana.
 
 Exit code: 0
