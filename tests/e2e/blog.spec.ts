@@ -76,7 +76,7 @@ test('erro da API, limite, rede e retry', async ({ page }) => {
   await page.getByRole('button', { name: 'Tentar novamente' }).click(); await expect(page.getByText('10 publicações encontradas')).toBeVisible()
 })
 
-for (const width of [320, 375, 390, 768, 1024, 1440, 1920]) {
+for (const width of [320, 375, 390, 768, 1024, 1280, 1440, 1920]) {
   test(`Home e detalhe sem overflow em ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 }); await page.goto('/')
     await expect(page.getByText('10 publicações encontradas')).toBeVisible()

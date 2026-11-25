@@ -13,21 +13,29 @@ const report = { timestamp: new Date().toISOString(), sourceCommit: execFileSync
 const api = axios.create({ baseURL: 'https://api.github.com', timeout: 20000, headers: { Accept: 'application/vnd.github+json' } })
 const browser = await chromium.launch()
 try {
+  const { data: profile } = await api.get('/users/Arthurdias256')
   const { data: repo } = await api.get(`/repos/${repository}`)
   const { data: rawIssues } = await api.get(`/repos/${repository}/issues`, { params: { state: 'all', per_page: 100, sort: 'created', direction: 'desc' } })
   const issues = rawIssues.filter(issue => !issue.pull_request)
+  assert.equal(profile.login, 'Arthurdias256')
+  assert.ok(profile.avatar_url && profile.html_url && Number.isInteger(profile.followers))
   assert.equal(repo.private, false)
   assert.ok(issues.length >= 10)
   assert.ok(issues.every(issue => issue.user.login === 'Arthurdias256' && issue.body?.length > 600 && issue.body.includes('```')))
+  assert.ok(issues.every((issue, index) => index === 0 || new Date(issues[index - 1].created_at) >= new Date(issue.created_at)))
   assert.equal(new Set(issues.map(issue => issue.body)).size, issues.length)
-  report.github = { public: !repo.private, htmlURL: repo.html_url, issues: issues.map(issue => ({ number: issue.number, title: issue.title, author: issue.user.login, markdownLength: issue.body.length, url: issue.html_url })), distinctBodies: true, intellectualAuthorship: 'Não inferida apenas pelo login; conteúdo com IA deve ser revisado pelo aluno.' }
+  report.github = { profile: { login: profile.login, name: profile.name, bio: !!profile.bio, avatar: !!profile.avatar_url, followers: profile.followers, url: profile.html_url }, public: !repo.private, htmlURL: repo.html_url, issues: issues.map(issue => ({ number: issue.number, title: issue.title, author: issue.user.login, state: issue.state, created_at: issue.created_at, markdownLength: issue.body.length, url: issue.html_url })), order: 'created desc', stateFilter: 'none', open: issues.filter(issue => issue.state === 'open').length, closed: issues.filter(issue => issue.state === 'closed').length, distinctBodies: true, intellectualAuthorship: 'Não inferida apenas pelo login; conteúdo com IA deve ser revisado pelo aluno.' }
 
   const commits = execFileSync('git', ['rev-list', '--all'], { encoding: 'utf8' }).trim().split('\n')
   const secretPattern = 'gh[pousr]_[[:alnum:]]{20,}|github_pat_[[:alnum:]_]{30,}|AKIA[A-Z0-9]{16}|-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----'
   const scan = spawnSync('git', ['grep', '-I', '-l', '-E', secretPattern, ...commits, '--'], { encoding: 'utf8' })
   assert.ok(scan.status === 0 || scan.status === 1, 'Erro ao inspecionar histórico')
   const matches = scan.stdout.trim().split('\n').filter(Boolean)
-  report.historySecurity = { commits: commits.length, matchingFiles: matches, limitation: 'Heurística por padrões, não certificação de ausência de todo segredo possível.' }
+  const tracked = execFileSync('git', ['ls-files'], { encoding: 'utf8' }).trim().split('\n')
+  const forbiddenTracked = tracked.filter(file => /(^|\/)(node_modules|dist|coverage|test-results|playwright-report)(\/|$)|(^|\/)\.env(?:\.|$)/.test(file) && file !== '.env.example')
+  assert.equal(forbiddenTracked.length, 0, 'Arquivo gerado/segredo versionado')
+  assert.ok(tracked.includes('package-lock.json'))
+  report.historySecurity = { commits: commits.length, matchingFiles: matches, forbiddenTracked, lockfileTracked: true, limitation: 'Heurística por padrões, não certificação de ausência de todo segredo possível.' }
   assert.equal(matches.length, 0, 'Possível credencial no histórico; revisar nomes dos arquivos, sem imprimir valores')
 
   const document = await axios.get(baseURL, { timeout: 20000 })
@@ -68,7 +76,7 @@ try {
     const violations = axe.violations.map(violation => ({ id: violation.id, impact: violation.impact, targets: violation.nodes.map(node => node.target) }))
     report.accessibility.push({ path, mode: 'axe completo, incluindo heading-order e color-contrast', violations })
     assert.equal(violations.length, 0, `Violações axe em ${path}`)
-    for (const width of [320, 375, 390, 768, 1024, 1440, 1920]) {
+    for (const width of [320, 375, 390, 768, 1024, 1280, 1440, 1920]) {
       await page.setViewportSize({ width, height: 900 })
       const dimensions = await page.evaluate(() => ({ viewport: innerWidth, document: document.documentElement.scrollWidth }))
       report.responsiveness.push({ path, width, ...dimensions })
