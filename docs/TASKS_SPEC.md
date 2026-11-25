@@ -13,7 +13,7 @@ Status de continuação: **implementação autorizada; T01 documentada**. Notion
 - [x] T07: SearchInput/Pagination, debounce/cancelamento, contagem, estado URL, limites e estados de consulta; lint/build aprovados. Testes automatizados em T10.
 - [x] T08: rotas, consulta individual, retorno, GFM seguro e 404; lint/build aprovados. Fluxos de acesso direto e navegação cobertos em T10.
 - [x] T09: sete larguras sem overflow, teclado e axe na Home/detalhe; nome acessível dos cards corrigido após falha E2E real. Compilação de testes corrigida. Nova execução exigida em T10.
-- [ ] T10: suíte automatizada.
+- [x] T10: 31 testes Vitest (27 fluxos/componentes + 4 utilitários) e 11 Playwright aprovados; MSW e interceptação E2E independentes do GitHub. Lint/tsc -b aprovados. Primeira falha de mock (React no nome do repo) corrigida; espera assíncrona RTL 5s para import lazy em ambiente Windows, sem remover cenário. Resultados finais repetidos em T13.
 - [ ] T11: documentação final e evidências.
 - [ ] T12: build, CI e deploy quando autenticado.
 - [ ] T13: auditoria final.

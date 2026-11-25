@@ -39,6 +39,7 @@ export function Home() {
 
   const total = posts.data?.total_count
   const pages = total === undefined ? page : Math.min(maxPages, Math.ceil(total / githubConfig.perPage))
+  const outOfRange = total !== undefined && total > 0 && page > pages
   const pending = posts.loading || waiting
   function goToPage(nextPage: number) {
     if (pending) return
@@ -49,9 +50,9 @@ export function Home() {
     <div className="mb-3 flex flex-wrap items-center justify-between gap-4"><h2 id="publications-title" className="text-lg">Publicações</h2><span role="status" aria-live="polite" className="text-sm">{pending ? 'Consultando publicações…' : total !== undefined ? `${total} ${total === 1 ? 'publicação encontrada' : 'publicações encontradas'}` : 'Não foi possível contar as publicações'}</span></div>
     <SearchInput value={draft} pending={pending} onChange={setDraft} onSubmit={() => { if (waiting) updateQuery(draft) }} />
     <div aria-busy={pending}>
-      {pending ? <LoadingState message={query || waiting ? 'Pesquisando publicações…' : undefined} /> : posts.error ? <ErrorState error={posts.error} onRetry={posts.retry} /> : posts.data?.items.length ? <IssueList issues={posts.data.items} /> : <EmptyState />}
+      {pending ? <LoadingState message={query || waiting ? 'Pesquisando publicações…' : undefined} /> : posts.error ? <ErrorState error={posts.error} onRetry={posts.retry} /> : outOfRange ? <div role="status" className="rounded-lg bg-post p-6"><p>Esta página está além dos resultados disponíveis.</p><button className="action mt-4" onClick={() => goToPage(1)}>Ir para primeira página</button></div> : posts.data?.items.length ? <IssueList issues={posts.data.items} /> : <EmptyState />}
     </div>
-    {!posts.error && (total === undefined || total > 0) && <Pagination page={page} pages={pages} disabled={pending} onPage={goToPage} />}
+    {!posts.error && !outOfRange && (total === undefined || total > 0) && <Pagination page={page} pages={pages} disabled={pending} onPage={goToPage} />}
     {total !== undefined && total > maxPages * githubConfig.perPage && <p className="mt-4 text-sm">A busca do GitHub limita o acesso aos primeiros 1.000 resultados. Com seis itens por página, exibimos até 996; refine sua pesquisa para encontrar outras publicações.</p>}
     {posts.data?.incomplete_results && <p role="status" className="mt-4 text-sm">O GitHub retornou resultados incompletos. Refine a busca ou tente novamente.</p>}
   </section></>

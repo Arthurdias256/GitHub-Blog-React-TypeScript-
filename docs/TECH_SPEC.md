@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T10 — estratégia de testes implementada
+Vitest/jsdom + Testing Library/user-event + MSW; 31 cenários com respostas HTTP determinísticas, incluindo falha perfil/detalhe, nulos, busca/limpeza/contagem, paginação/reset, especiais, debounce, resposta antiga, 404, PR, rede, 500, 403/429, Retry-After, loading, GFM e segurança. Playwright Chromium: 11 cenários, sete larguras, acesso direto/reload, retorno/URL, teclado e axe (zero violações nos estados auditados). scripts/check-api.mjs verifica integração pública separada (não usa token). E2E usa fixtures só no teste, nunca no bundle. URL com página além do total oferece ação para primeira página. CI e relatório final serão registrados em T12–13.
+
 ## T09 — responsividade/a11y e desempenho
 Primeira rodada Playwright: sete larguras passaram sem overflow na Home e detalhe; axe não detectou violações nas páginas testadas. Um E2E encontrou card sem nome no navegador (article dentro de link): corrigido com aria-labelledby no título. Verificação completa TypeScript identificou falta da lib DOM nas avaliações Playwright; adicionada ao projeto de ferramentas. Nenhuma regra foi desativada. Detalhe/Markdown carregados via lazy/Suspense para retirar aviso de bundle >500k; fontes limitadas ao subset latin (inclui português).
 

@@ -111,8 +111,24 @@ try {
     const found = existing.find(issue => !issue.pull_request && issue.title === post.title)
     if (found) { console.log(`Existente: ${found.html_url}`); continue }
     const body = `${post.introduction}\n\n## Conceitos e decisões\n\n${post.sections}\n\n## Exemplo\n\n\`\`\`${post.language}\n${post.code}\n\`\`\`\n\n## Checklist prático\n\n${post.checklist.map(item => `- ${item}`).join('\n')}\n\n## Referência\n\n[Documentação oficial](${post.url})\n\n---\n\nPublicação preparada com apoio do OpenCode para este projeto acadêmico. Revisão e apresentação individual pelo aluno permanecem necessárias.`
-    const { data } = await api.post(`/repos/${repository}/issues`, { title: post.title, body })
-    console.log(`Criada: ${data.html_url}`)
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        // Recheck after an ambiguous 5xx: the previous POST might have succeeded.
+        if (attempt > 0) {
+          const { data: current } = await api.get(`/repos/${repository}/issues`, { params: { state: 'all', per_page: 100 } })
+          const recovered = current.find(issue => !issue.pull_request && issue.title === post.title)
+          if (recovered) { console.log(`Confirmada após falha: ${recovered.html_url}`); break }
+        }
+        const { data } = await api.post(`/repos/${repository}/issues`, { title: post.title, body })
+        console.log(`Criada: ${data.html_url}`)
+        break
+      } catch (error) {
+        const status = axios.isAxiosError(error) ? error.response?.status : undefined
+        if (attempt === 3 || (status && status < 500)) throw error
+        console.log(`GitHub indisponível (${status || 'rede'}); nova tentativa segura ${attempt + 1}/3.`)
+        await new Promise(resolve => setTimeout(resolve, 2000 * (attempt + 1)))
+      }
+    }
   }
 } catch (error) {
   console.error('Falha ao preparar issues. Credenciais omitidas.', axios.isAxiosError(error) ? { status: error.response?.status, message: error.response?.data?.message || error.code } : error instanceof Error ? error.message : 'Erro desconhecido')
