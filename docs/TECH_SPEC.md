@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T04 — dados e resiliência
+Configuração em src/config/github.ts e .env.example (Arthurdias256). Interfaces GitHubUser, GitHubIssue, SearchResponse. Axios público com timeout 15s, Accept/API-Version. Erros distinguem rede/404/HTTP/rate limit; retry respeita reset/retry-after quando informado. Hook useResource cancela e ignora respostas antigas, sem retry automático. Consulta fixa repo/is:issue + texto entre aspas, ordenada por criação; filtragem defensiva de PR e rejeição no detalhe. Nenhum token no cliente. Permissões verificadas por credencial local sem imprimir segredo: login Arthurdias256, repositório público, admin/push true; 0 issues antes da preparação.
+
 ## T03 — visual
 Nunito 400/700 hospedada localmente por @fontsource, line-height 160%. Tokens dark/azul seguem o guia visual observado; valores hex, container 864px útil, Header 296px e sobreposição 64px são aproximações declaradas (sem exportação exata). Header/ícone terminal e linhas geométricas recriados em HTML/SVG, não são assets originais nem screenshots do Figma. Sem tema extra ou gradientes. Tailwind v4 via plugin Vite e @theme; componentes compartilham tokens. Foco visível e skip link desde a base.
 
