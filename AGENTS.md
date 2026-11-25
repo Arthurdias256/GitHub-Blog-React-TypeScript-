@@ -8,7 +8,7 @@ O usuário autorizou implementar com limitações de referência. Na continuaç�
 - Figma: https://www.figma.com/design/UklolDw90CmcDAj9piQVUJ/GitHub-Blog--Community---Copy-?node-id=2-1297
 - O Notion prevalece em divergências. Não declarar leitura integral com acesso parcial.
 
-## Implementação futura
+## Implementação e manutenção
 React, TypeScript estrito, Vite 8.x, Tailwind CSS, Axios, React Router, npm e ESLint. Não usar Next.js, fetch no lugar de Axios nem segredos em VITE_*. Confirmar versões e compatibilidade antes de instalar. Preservar package-lock.json.
 
 Separar componentes, páginas, serviços, tipos e hooks sem arquitetura excessiva. Integrar endpoints reais do GitHub; excluir pull requests. Testes determinísticos com mocks, separados de verificações reais de API. Validar teclado, estados de erro e larguras de 320 a 1920 px.

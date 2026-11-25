@@ -1,6 +1,6 @@
 # PRD — GitHub Blog
 
-**Status: levantamento oficial recuperado; implementação autorizada.** Esta revisão substitui o bloqueio inicial abaixo, mantido como histórico. Fonte primária: Notion, seções 1–14 lidas por rolagem no navegador MCP durante a continuação.
+**Status: requisitos oficiais mapeados e aplicação implementada/testada localmente; entrega em finalização.** Fonte primária: Notion, seções 1–14 lidas por rolagem no navegador MCP durante a continuação. Diagnóstico inicial preservado em evidencias/ACESSO_INICIAL.md.
 
 ## Requisitos oficiais (IDs do Notion)
 | ID | Requisito e aceite |
@@ -54,42 +54,34 @@ Oficiais: SPEC em docs/, AGENTS na raiz, docs/AI_USAGE.md com três evidências 
 
 Complementares do usuário: Vite 8, Vitest/Testing Library/Playwright, larguras 320–1920, GFM, evidências adicionais e Vercel preferencial. Decisão: seis itens/página; Search API para busca vazia e preenchida; autor/repo Arthurdias256/GitHub-Blog-React-TypeScript-.
 
-## Histórico da revisão inicial (superado onde indicado)
+## Identificação, problema e solução
+Projeto individual de recuperação de Single Page Application (SPA). Problema: disponibilizar conteúdo técnico do aluno com navegação, pesquisa e leitura acessível sem manter backend editorial. Solução: perfil público GitHub + issues como publicações numa SPA. Objetivo acadêmico: demonstrar componentes/Props, estados/efeitos, custom Hook, TypeScript, HTTP, rotas, documentação, testes e explicação individual.
 
-## Identificação e contexto verificados
-Projeto individual de recuperação da disciplina Single Page Application (SPA). Objetivo: transformar issues de um repositório público em publicações de um blog, exibindo o perfil do autor, catálogo, busca com paginação e leitura em rota própria sem recarregar a aplicação.
+Público-alvo adotado como decisão de produto: leitores de conteúdo técnico e professor avaliador. Fluxo principal: Home → pesquisar → paginar → abrir detalhe → voltar preservando consulta/página. Fora de escopo: login, banco, edição/criação de posts pela UI, comentários interativos, temas adicionais e filtros extras. Issues criadas apenas administrativamente na conta autorizada.
 
-O trecho acessível do Notion exige React, TypeScript, Tailwind CSS, Axios, React Router, OpenCode, PRD_SPEC, TECH_SPEC e TASKS_SPEC. A entrega inclui repositório público, aplicação publicada e apresentação/demonstração individual.
+## Requisitos não funcionais adotados
+- RNF-01: identidade do Figma e layout utilizável de 320 a 1920px; aproximações registradas, sem afirmar pixel-perfect.
+- RNF-02: TypeScript estrito, separação pages/components/services/hooks/types/utils/config e validação lint/build.
+- RNF-03: sem segredos no cliente/histórico, Markdown seguro e links externos protegidos.
+- RNF-04: mensagens acessíveis, foco/teclado, alt/labels e testes axe como evidência parcial, sem prometer certificação WCAG.
+- RNF-05: testes reproduzíveis sem depender do GitHub, integração real separada e lockfile versionado.
+- RNF-06: README, SPEC, IA, commits incrementais, screenshots reais, deployment e roteiro de apresentação.
 
-A aprovação exige nota estritamente maior que 7,0 (mínimo 7,1 com uma casa decimal) **e** condições mínimas da seção 13. Essa seção não foi acessada. Não é possível avaliar aprovação ou estimar nota.
+## Histórias e aceitação
+| História | Aceite | Requisitos |
+|---|---|---|
+| Como leitor, quero conhecer o autor | Perfil vindo da Users API, campos nulos legíveis | RF-01/02 |
+| Quero explorar publicações reais recentes | Dez issues próprias, seis por página, sem PR, título/resumo/data/comentários | RF-03/04/07/08 |
+| Quero encontrar um assunto | Search API com escopo fixo, debounce 500ms, nova consulta página 1, contador/vazio | RF-05/06/07 |
+| Quero compartilhar e ler um post | Rota individual funciona diretamente/reload, Markdown completo e retorno | RF-09/10/11/12 |
+| Quero me recuperar de falhas | Loading termina, erro contextual, retry sem repetição automática e rate limit | RF-13/14 |
+| Quero usar celular/teclado | Sem overflow indevido, foco e nomes/labels acessíveis | RF-15/16 |
 
-## Escopo inicial solicitado pelo usuário — ainda não confrontado integralmente com o Notion
-- RF-01: perfil público real, com tratamento de campos opcionais.
-- RF-02: listagem real de issues sem pull requests.
-- RF-03: busca restrita ao repositório, contagem, estados vazios e erros.
-- RF-04: paginação real integrada à busca; modelo oficial pendente.
-- RF-05: detalhes em rota própria, acesso direto e link para a issue.
-- RF-06: Markdown seguro, incluindo tabelas e código.
-- RF-07: React Router, página não encontrada e preservação da consulta.
-- RF-08: carregamento, falhas, rate limit e possibilidade de nova tentativa.
-- RNF-01: fidelidade ao Figma, responsividade e acessibilidade verificadas.
-- RNF-02: TypeScript estrito, testes isolados da API e lint/build válidos.
-- RNF-03: ausência de segredos no cliente e no histórico.
-- RNF-04: documentação, evidências reais, versionamento incremental e publicação verificável.
+## Rastreabilidade e aprovação
+Matriz oficial completa com pontuação, arquivos, testes, evidências e status: [RUBRICA.md](RUBRICA.md). Testes: src/tests/app.test.tsx, src/tests/utils.test.ts e tests/e2e/blog.spec.ts. Implementações/decisões: TECH_SPEC.md. Commits/checklist: TASKS_SPEC.md. A nota final e a apresentação individual não podem ser atestadas pelo agente.
 
-## Histórias iniciais e aceitação provisória
-Como leitor, quero pesquisar publicações, navegar pelos resultados e ler um post completo. Aceitação inicial: consultar API real, excluir PRs, reiniciar a página ao alterar a busca, abrir detalhes diretamente pela URL e apresentar mensagens compreensíveis em falhas. Esses critérios vêm do pedido, não constituem transcrição da rubrica oficial.
-
-## Matriz de rastreabilidade oficial — parcial
-| Critério verificável | Pontuação oficial | Implementação | Arquivo | Teste | Evidência | Status |
-|---|---|---|---|---|---|---|
-| Perfil, catálogo, busca paginada e rota de leitura | Não acessível | Não iniciada | — | Não executado | docs/evidencias/ACESSO_INICIAL.md | Não atendido |
-| Documentos PRD_SPEC, TECH_SPEC e TASKS_SPEC | Não acessível | Rascunhos com bloqueios | Arquivos SPEC na raiz | Revisão documental | Documentos existentes | Parcialmente atendido |
-| Repositório público, publicação e apresentação individual | Não acessível | Não verificadas nesta etapa | — | Não executado | Trecho inicial do Notion | Não verificável |
-| Condições mínimas da seção 13 e rubrica completa | Não acessível | Aguardando fonte | — | — | Registro de acesso parcial | Não verificável |
-
-## Pendências indispensáveis
-Exportação integral do Notion, incluindo subpáginas, rubrica, seção 13 e instruções de entrega; inspeção técnica completa do Figma; resolução da divergência entre remote existente e conta sugerida. Público-alvo detalhado, regras de negócio específicas, critérios eliminatórios e quantidade oficial de testes ainda não verificados.
+## Pendências da entrega acadêmica
+Conferir datas/regras complementares no Blackboard, enviar links e apresentar pessoalmente. Propriedades/exports exatos do Figma permanecem limitados; as páginas Projeto e Style Guide foram vistas e capturadas. Não há seção do enunciado principal 1–14 conhecida que permaneça sem leitura após a continuação; não foram encontrados documentos relacionados de requisitos no corpo. A disciplina ancestral e o Blackboard não foram auditados como parte do enunciado.
 
 ## Referências
 - https://app.notion.com/p/422dfca74d8d81e194e9dc0aa13ca6f0

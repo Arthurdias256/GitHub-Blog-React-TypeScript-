@@ -27,30 +27,45 @@ Nunito 400/700 hospedada localmente por @fontsource, line-height 160%. Tokens da
 ## T02 — instalação validada
 Setup manual para preservar pasta existente (não vazia). Node 24.11.1/npm 9.3.1 compatíveis com engines do Vite. Vite **8.3.8**, plugin React 6.3.0, Tailwind 4.3.5 e Vitest 5.1.2 confirmados por npm. Lockfile preservado. npm install: zero vulnerabilidades. ESLint e build/tsc -b passaram no scaffold. Sem falhas nativas Rolldown no Windows. Versões completas no package-lock.json; ESLint 9 gera aviso de suporte descontinuado no registro, mas permanece funcional e não tem vulnerabilidades no audit desta instalação.
 
-**Revisão de continuação:** Node v24.11.1, npm 9.3.1, implementação autorizada. SPEC agora em docs/, conforme Notion. Sem bloqueio de implementação. Usar 6 itens/página via Search API, ordenados created/desc com is:issue e filtro repo. Debounce 500ms, AbortController e proteção de resposta antiga. Tipagem, estados e testes serão registrados por etapa. Histórico inicial abaixo é diagnóstico anterior, não situação atual.
+## Versões efetivamente instaladas
+Node 24.11.1; npm 9.3.1; React/React DOM 19.3.1; TypeScript 5.9.3; Vite 8.3.8; plugin React 6.3.0; Tailwind/plugin 4.3.5; Axios 1.21.1; React Router DOM 7.18.7; react-markdown 10.1.0; remark-gfm 4.0.1; Lucide 0.468.0; Nunito 5.3.0; ESLint 9.39.5; Vitest 5.1.2; Testing Library React 16.3.3; user-event 14.6.13; jest-dom 6.9.1; jsdom 27.4.0; MSW 2.15.0; Playwright 1.65.1; axe Playwright 4.14.1. Registro: npm ls --depth=0 e package-lock.json. Node engines do Vite: ^20.19.0 ou >=22.12.0; projeto exige >=22.12.0.
 
-## Ambiente observado
-Windows. A pasta de trabalho contém o repositório filho `GitHub-Blog-React-TypeScript-`, inicialmente com `.git` e README de uma linha. Branch `main` acompanhando `origin/main`, sem alterações iniciais. Remote: https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-.git.
+## Estrutura e fluxo de dados
+```
+src/
+  config/github.ts       configuração pública e seis itens/página
+  types/github.ts        GitHubUser, GitHubIssue, SearchResponse
+  services/api.ts        instância Axios + ApiError
+  services/github.ts     getProfile, searchIssues, getIssue
+  hooks/useResource.ts   snapshot/chave, cancelamento, retry
+  utils/content.ts       resumo legível e data relativa pt-BR
+  components/            Header, ProfileCard, IssueCard/IssueList,
+                         SearchInput, Pagination, States, MarkdownContent
+  pages/                 Home, PostDetails, NotFound
+  routes/AppRoutes.tsx   rotas, lazy/Suspense, foco e título
+  tests/                 testes de integração/utilitários e MSW
+tests/e2e/               fluxos de navegador e axe
+scripts/                 integração real, evidências e seed administrativo
+docs/                    SPEC, rubrica, apresentação e evidências
+```
 
-Executáveis node, npm e git localizados. GitHub CLI não localizado por Get-Command. Versões e autenticação não verificadas; não inferir compatibilidade. Não existe package.json, build nem aplicação para testar nesta etapa.
+Fluxo: usuário → Home/query/page → serviço Axios → GitHub → useResource → componentes por Props. Estado local: input/contagem de tentativas/snapshot e relógio de rate limit. Estado navegável: q/page na URL. Sem contexto global, store ou backend desnecessários. Sem cache persistente: uma volta ao catálogo consulta novamente; reduz complexidade, mas consome quota pública.
 
-## Stack prevista pelo pedido
-React + TypeScript + Vite 8.x; Tailwind CSS; Axios; React Router; ESLint; npm. Vitest, Testing Library e Playwright para testes; mocks/MSW conforme necessidade. Versões efetivas: pendentes de instalação após desbloqueio.
+### Contratos e endpoints
+GitHubUser inclui login, name/bio/company nulos, avatar_url, followers e html_url. GitHubIssue contém id, number, title, body nulo, created_at, comments, html_url, user nulo e pull_request opcional. SearchResponse contém total_count, incomplete_results e items. Todos estão em src/types/github.ts; tipos não constituem validação runtime arbitrária.
 
-## Arquitetura proposta, sujeita ao enunciado completo
-Páginas Home, PostDetails e NotFound; componentes de perfil, card, busca, paginação e estados; serviços Axios centralizados; tipos GitHub; hooks para requisições canceláveis. Estado de busca/página na URL, se compatível com o Notion. Não há interfaces TypeScript implementadas ainda.
+| Endpoint | Uso |
+|---|---|
+| GET /users/{username} | Perfil |
+| GET /search/issues | Catálogo e busca, q/page/per_page/sort/order |
+| GET /repos/{owner}/{repo}/issues/{number} | Detalhe |
+| GET /repos/{owner}/{repo}/issues | Apenas preparação/auditoria administrativa, não catálogo |
 
-Rotas previstas: `/`, `/post/:issueNumber`, `*`. API base `https://api.github.com`: `/users/{username}`, `/repos/{owner}/{repo}/issues`, `/search/issues`, `/repos/{owner}/{repo}/issues/{issue_number}`.
+## Publicação
+Vercel: npm ci, npm run build, dist; vercel.json com fallback SPA sem reescrever /assets e cabeçalhos nosniff/referrer-policy/frame deny. CI em .github/workflows/ci.yml, Node 24, instalações limpas, lint/types/test/E2E/build, relatórios apenas em falha. Sem tokens em variáveis do bundle. Autenticação CLI verificada como arthurdias256; URL só será registrada após deployment real.
 
-Busca proposta: parâmetros Axios, filtro de repositório e `is:issue`, debounce e AbortController quando disparada durante digitação. Paginação com page/per_page, reset em nova consulta, limite de resultados e ausência de duplicatas. **Modelo exato aguarda Notion.** Markdown com react-markdown/remark-gfm, caso permitidos, sem HTML externo inseguro.
+## Limitações conhecidas
+Busca GitHub tem limites próprios e atraso eventual de indexação. Consultas de múltiplas palavras são frases; aspas/barras invertidas do usuário são substituídas por espaços para preservar escopo. Não há execução de HTML externo nem syntax highlighting extra. Imagens remotas podem ficar indisponíveis. WCAG integral e equivalência pixel-perfect não são afirmadas. Não foi possível exportar os assets originais do Figma; medidas, cores e Header são aproximações. Prazos e avaliação individual no Blackboard dependem do aluno.
 
-## Segurança, interface e validação previstas
-Configuração pública via ambiente, sem tokens VITE_*. Tratar timeout, falhas de rede, 404 e rate limit. Tokens, assets e dimensões do Figma ainda não extraídos; não afirmar fidelidade visual. Validar semântica, foco, teclado, contraste e larguras solicitadas sem declarar conformidade integral antecipadamente.
-
-Testes futuros devem cobrir os fluxos listados pelo usuário, isolados da disponibilidade do GitHub. Integração real separada. Executar npm ci, npm ls vite, lint, TypeScript de todas as configurações, testes, E2E e build; registrar saída real.
-
-## Publicação prevista
-Vercel, salvo instrução oficial divergente: npm ci, npm run build, saída dist, fallback SPA. Nenhuma configuração criada ou publicação realizada. Conta, repositório definitivo e acesso de deploy pendentes.
-
-## Limitações atuais
-Não há servidor MCP específico de Notion ou Figma nesta sessão. Navegador MCP abriu ambas as referências, mas o Notion só expôs introdução/seção 1 e o Figma exige cadastro para inspecionar. Implementação aguarda fonte oficial completa. Ver docs/evidencias/ACESSO_INICIAL.md.
+## Referências técnicas
+[GitHub REST](https://docs.github.com/en/rest), [Vite](https://vite.dev/), [Tailwind](https://tailwindcss.com/), [React Router](https://reactrouter.com/), [Axios](https://axios-http.com/), [Notion/Figma e requisitos](PRD_SPEC.md).

@@ -1,0 +1,52 @@
+{
+  "baseURL": "http://127.0.0.1:5173",
+  "source": "API pública real, sem interceptação ou fixtures",
+  "desktop": "1440x1000",
+  "mobile": "375x812",
+  "pageTwoCards": 4,
+  "detailURL": "http://127.0.0.1:5173/post/10",
+  "directReload": true,
+  "mobileOverflow": false,
+  "responses": [
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/users/Arthurdias256",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=2&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue+%22React%22&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/repos/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/10",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/repos/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/10",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/users/Arthurdias256",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/users/Arthurdias256",
+      "status": 200
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo:Arthurdias256%2FGitHub-Blog-React-TypeScript-+is:issue&sort=created&order=desc&page=1&per_page=6",
+      "status": 200
+    }
+  ]
+}
