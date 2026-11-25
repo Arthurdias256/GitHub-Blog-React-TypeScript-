@@ -82,6 +82,8 @@ Matriz oficial completa com pontuação, arquivos, testes, evidências e status:
 
 Auditoria complementar RF-09/11/16: logotipo deve efetivamente retornar ao catálogo sem restaurar consulta obsoleta; headings do corpo devem começar abaixo do h1 do post, sem saltos. Casos reproduzidos, corrigidos e cobertos por regressões, sem alterar o escopo do produto.
 
+RF-02/16: exibir prefixo @ do identificador e garantir contraste do contorno de busca. Ajuste limitado à borda azul-acinzentada do campo para atingir 3:1 entre superfícies adjacentes, mantendo identidade e layout.
+
 ## Pendências da entrega acadêmica
 Conferir datas/regras complementares no Blackboard, enviar links e apresentar pessoalmente. Propriedades/exports exatos do Figma permanecem limitados; as páginas Projeto e Style Guide foram vistas e capturadas. Não há seção do enunciado principal 1–14 conhecida que permaneça sem leitura após a continuação; não foram encontrados documentos relacionados de requisitos no corpo. A disciplina ancestral e o Blackboard não foram auditados como parte do enunciado.
 

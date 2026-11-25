@@ -25,6 +25,8 @@ ProfileCard usa useResource/getProfile, com erro independente das publicações.
 Configuração em src/config/github.ts e .env.example (Arthurdias256). Interfaces GitHubUser, GitHubIssue, SearchResponse. Axios público com timeout 15s, Accept/API-Version. Erros distinguem rede/404/HTTP/rate limit; retry respeita reset/retry-after quando informado. Hook useResource cancela e ignora respostas antigas, sem retry automático. Consulta fixa repo/is:issue + texto entre aspas, ordenada por criação; filtragem defensiva de PR e rejeição no detalhe. Nenhum token no cliente. Permissões verificadas por credencial local sem imprimir segredo: login Arthurdias256, repositório público, admin/push true; 0 issues antes da preparação.
 
 ## T03 — visual
+Auditoria de contraste: a borda do campo (#1c2f41) tinha 1,35:1 contra a página. Somente o contorno do campo passou a #486581 (3,05:1 contra #071422; 3,17:1 contra #040f1a), preservando cores de superfície/texto e estrutura do protótipo. Tokens de texto/link permanecem inalterados. Perfil ganhou prefixo @ conforme redação RF-02, sem trocar dados reais ou layout.
+
 Nunito 400/700 hospedada localmente por @fontsource, line-height 160%. Tokens dark/azul seguem o guia visual observado; valores hex, container 864px útil, Header 296px e sobreposição 64px são aproximações declaradas (sem exportação exata). Header/ícone terminal e linhas geométricas recriados em HTML/SVG, não são assets originais nem screenshots do Figma. Sem tema extra ou gradientes. Tailwind v4 via plugin Vite e @theme; componentes compartilham tokens. Foco visível e skip link desde a base.
 
 ## T02 — instalação validada

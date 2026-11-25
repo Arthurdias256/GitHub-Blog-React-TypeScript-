@@ -14,6 +14,7 @@ describe('fluxos completos', () => {
     open(); await results()
     expect(await screen.findByRole('heading', { name: profile.name! })).toBeVisible()
     expect(screen.getByText('12 seguidores')).toBeVisible()
+    expect(screen.getByText('@Arthurdias256')).toBeVisible()
     expect(screen.getAllByRole('article')).toHaveLength(6)
     expect(screen.getByRole('button', { name: 'Anterior' })).toBeDisabled()
   })

@@ -81,8 +81,26 @@ for (const width of [320, 375, 390, 768, 1024, 1440, 1920]) {
 
 test('teclado e auditoria automatizada WCAG 2.2 AA', async ({ page }) => {
   await page.goto('/'); await expect(page.getByText('10 publicações encontradas')).toBeVisible()
+  const controlContrast = await page.getByRole('searchbox').evaluate(input => {
+    function luminance(color: string) {
+      const [r, g, b] = color.match(/[\d.]+/g)!.slice(0, 3).map(Number).map(value => {
+        const channel = value / 255
+        return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4
+      })
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b
+    }
+    const field = getComputedStyle(input.parentElement!)
+    const border = luminance(field.borderTopColor)
+    return [field.backgroundColor, getComputedStyle(document.body).backgroundColor].map(color => {
+      const background = luminance(color)
+      return (Math.max(border, background) + 0.05) / (Math.min(border, background) + 0.05)
+    })
+  })
+  expect(controlContrast.every(ratio => ratio >= 3)).toBe(true)
   await page.getByRole('searchbox').focus(); await page.keyboard.type('React'); await page.keyboard.press('Enter')
   await expect(page.getByText('7 publicações encontradas')).toBeVisible()
+  await expect(page.getByRole('searchbox')).toHaveCSS('outline-style', 'solid')
+  await expect(page.getByRole('searchbox')).toHaveCSS('outline-width', '2px')
   await page.keyboard.press('Tab'); await expect(page.getByRole('button', { name: 'Limpar pesquisa' })).toBeFocused()
   const home = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
   expect(home.violations).toEqual([])

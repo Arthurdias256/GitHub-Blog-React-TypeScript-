@@ -18,7 +18,7 @@ export function ProfileCard() {
       </div>
       <p className="mt-2">{profile.bio || 'Este perfil ainda não possui uma biografia.'}</p>
       <div className="metadata mt-5">
-        <span><Github aria-hidden="true" />{profile.login}</span>
+        <span><Github aria-hidden="true" />@{profile.login}</span>
         {profile.company && <span><Building2 aria-hidden="true" />{profile.company}</span>}
         <span><Users aria-hidden="true" />{profile.followers} {profile.followers === 1 ? 'seguidor' : 'seguidores'}</span>
       </div>
