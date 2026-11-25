@@ -80,6 +80,8 @@ Público-alvo adotado como decisão de produto: leitores de conteúdo técnico e
 ## Rastreabilidade e aprovação
 Matriz oficial completa com pontuação, arquivos, testes, evidências e status: [RUBRICA.md](RUBRICA.md). Testes: src/tests/app.test.tsx, src/tests/utils.test.ts e tests/e2e/blog.spec.ts. Implementações/decisões: TECH_SPEC.md. Commits/checklist: TASKS_SPEC.md. A nota final e a apresentação individual não podem ser atestadas pelo agente.
 
+Auditoria complementar RF-09/11/16: logotipo deve efetivamente retornar ao catálogo sem restaurar consulta obsoleta; headings do corpo devem começar abaixo do h1 do post, sem saltos. Casos reproduzidos, corrigidos e cobertos por regressões, sem alterar o escopo do produto.
+
 ## Pendências da entrega acadêmica
 Conferir datas/regras complementares no Blackboard, enviar links e apresentar pessoalmente. Propriedades/exports exatos do Figma permanecem limitados; as páginas Projeto e Style Guide foram vistas e capturadas. Não há seção do enunciado principal 1–14 conhecida que permaneça sem leitura após a continuação; não foram encontrados documentos relacionados de requisitos no corpo. A disciplina ancestral e o Blackboard não foram auditados como parte do enunciado.
 

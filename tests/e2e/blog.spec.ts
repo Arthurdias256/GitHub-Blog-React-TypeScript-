@@ -43,6 +43,21 @@ test('vazio, limpeza e 404', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Página não encontrada' })).toBeVisible()
 })
 
+test('logotipo limpa a consulta e o histórico restaura a pesquisa correta', async ({ page }) => {
+  await page.goto('/?q=React&page=2')
+  await expect(page.getByText('7 publicações encontradas')).toBeVisible()
+  await page.getByRole('link', { name: 'GitHub Blog — página inicial' }).click()
+  await expect(page.getByText('10 publicações encontradas')).toBeVisible()
+  await expect(page.getByRole('searchbox')).toHaveValue('')
+  await expect(page).toHaveURL(/\/$/)
+  await page.goBack()
+  await expect(page.getByRole('searchbox')).toHaveValue('React')
+  await expect(page.getByText('Página 2 de 2')).toBeVisible()
+  await page.goForward()
+  await expect(page.getByText('10 publicações encontradas')).toBeVisible()
+  await expect(page.getByRole('searchbox')).toHaveValue('')
+})
+
 test('erro da API, limite, rede e retry', async ({ page }) => {
   await page.route('https://api.github.com/search/issues**', route => route.fulfill({ status: 500, json: { message: 'Failure' } }))
   await page.goto('/'); await expect(page.getByRole('alert')).toContainText('não conseguiu atender')
@@ -74,4 +89,6 @@ test('teclado e auditoria automatizada WCAG 2.2 AA', async ({ page }) => {
   await page.goto('/post/10'); await expect(page.getByRole('table')).toBeVisible()
   const detail = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
   expect(detail.violations).toEqual([])
+  const headings = await new AxeBuilder({ page }).withRules(['heading-order']).analyze()
+  expect(headings.violations).toEqual([])
 })

@@ -1,6 +1,7 @@
 import { excerpt, relativeDate } from '../utils/content'
 import { buildSearchQuery, normalizeSearch } from '../services/github'
 import { ApiError, normalizeApiError } from '../services/api'
+import { remarkHeadingOrder } from '../utils/remarkHeadingOrder'
 
 test('resumo remove Markdown e trunca sem conteúdo cru', () => {
   expect(excerpt('## Olá **React**\n```ts\nconst x = 1\n```\n[link](https://example.com)')).toBe('Olá React link')
@@ -20,4 +21,13 @@ test('erros desconhecidos têm mensagem e erro normalizado é preservado', () =>
   const error = new ApiError('Falha', 'http')
   expect(normalizeApiError(error)).toBe(error)
   expect(normalizeApiError(null).message).toContain('falha inesperada')
+})
+
+test('hierarquia Markdown começa em h2 e normaliza saltos sem alterar código', () => {
+  const headings = [3, 5, 6, 3, 1, 4].map(depth => ({ type: 'heading', depth }))
+  const code = { type: 'code', value: '# Apenas código' }
+  const tree = { type: 'root', children: [...headings, code] }
+  remarkHeadingOrder()(tree)
+  expect(headings.map(node => node.depth)).toEqual([2, 3, 4, 2, 2, 3])
+  expect(code.value).toBe('# Apenas código')
 })

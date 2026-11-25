@@ -57,3 +57,9 @@ Auditoria repetida efetivamente por `node scripts/validate.mjs`: todos os onze c
 
 ## Histórico
 - Levantamento inicial bloqueado; continuação autorizada; Notion recuperado por rolagem e fonte oficial integrada ao PRD. Os hashes acima são reais e preservam também a correção de compilação intermediária.
+
+## Nova auditoria pré-entrega
+- [x] A01 — reler Notion 1–14/rubrica/condições e comparar SPEC (RF-01–16/RN-01–10). Fonte retornada via navegador MCP; nenhuma mudança de rubrica encontrada.
+- [x] A02 — reproduzir regressões de navegação e hierarquia: dois testes novos falharam antes das correções; axe completo publicado apontou heading-order. Corrigidos somente esses problemas, com regressões adicionais. Arquivos: Home.tsx, MarkdownContent.tsx, remarkHeadingOrder.ts, global.css, app/utils/E2E tests. RF-09/11/16, RN-07/08. Lint/types, 34 Vitest e 12 E2E aprovados após correção.
+- [ ] A03 — complementar SPEC no formato da seção 7, evidências IA e checklist Blackboard; matriz/estimativa oficial.
+- [ ] A04 — repetir instalação/validações, verificar API/visibilidade/credenciais, publicar correções e auditar produção.

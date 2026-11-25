@@ -16,6 +16,12 @@ export function Home() {
   const requestedPage = Number(params.get('page'))
   const page = Number.isInteger(requestedPage) && requestedPage > 0 ? Math.min(requestedPage, maxPages) : 1
   const [draft, setDraft] = useState(query)
+  const [observedQuery, setObservedQuery] = useState(query)
+  // Synchronize before committing a render after Link/back/forward changes the URL.
+  if (observedQuery !== query) {
+    setObservedQuery(query)
+    setDraft(query)
+  }
   const waiting = normalizeSearch(draft) !== query
   const load = useCallback((signal: AbortSignal) => searchIssues(query, page, signal), [query, page])
   const posts = useResource(`issues:${query}:${page}`, load)
@@ -30,12 +36,6 @@ export function Home() {
     const timer = window.setTimeout(() => updateQuery(draft), 500)
     return () => window.clearTimeout(timer)
   }, [draft, waiting, updateQuery])
-
-  useEffect(() => {
-    const sync = () => setDraft(normalizeSearch(new URLSearchParams(window.location.search).get('q') || ''))
-    window.addEventListener('popstate', sync)
-    return () => window.removeEventListener('popstate', sync)
-  }, [])
 
   const total = posts.data?.total_count
   const pages = total === undefined ? page : Math.min(maxPages, Math.ceil(total / githubConfig.perPage))

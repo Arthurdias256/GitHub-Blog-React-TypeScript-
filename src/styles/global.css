@@ -39,6 +39,7 @@
   .markdown h1 { @apply text-2xl; }
   .markdown h2 { @apply mt-8 text-xl; }
   .markdown h3 { @apply mt-6 text-lg; }
+  .markdown h4, .markdown h5, .markdown h6 { @apply mt-6 text-base font-bold text-title; }
   .markdown a { @apply text-accent underline underline-offset-4; }
   .markdown ul { @apply list-disc space-y-2 pl-6; }
   .markdown ol { @apply list-decimal space-y-2 pl-6; }

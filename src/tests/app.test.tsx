@@ -40,6 +40,15 @@ describe('fluxos completos', () => {
     await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(6))
   })
 
+  test('logotipo volta à Home sem restaurar uma busca obsoleta', async () => {
+    const user = userEvent.setup(); open('/?q=React&page=2')
+    await screen.findByText('7 publicações encontradas')
+    await user.click(screen.getByRole('link', { name: 'GitHub Blog — página inicial' }))
+    await results()
+    expect(screen.getByRole('searchbox')).toHaveValue('')
+    expect(screen.getByText('Página 1 de 2')).toBeVisible()
+  })
+
   test('pagina no servidor, reinicia busca na página um e limpa consulta', async () => {
     const user = userEvent.setup(); open(); await results()
     await user.click(screen.getByRole('button', { name: 'Próxima' }))
@@ -103,6 +112,12 @@ describe('fluxos completos', () => {
     open('/post/10')
     expect(await screen.findByRole('heading', { level: 1, name: issues[0].title })).toBeVisible()
     expect(screen.getByRole('link', { name: /Ver no GitHub/ })).toHaveAttribute('href', issues[0].html_url)
+  })
+
+  test('títulos Markdown não saltam níveis após o título do post', async () => {
+    open('/post/10')
+    expect(await screen.findByRole('heading', { level: 2, name: 'Conceitos' })).toBeVisible()
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
   })
 
   test('erro no detalhe oferece retorno e nova tentativa', async () => {

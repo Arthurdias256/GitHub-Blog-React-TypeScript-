@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## Auditoria acadêmica complementar
+Regressões reproduzidas antes da correção: Link do logotipo removia q da URL, mas o draft antigo voltava a inseri-lo após debounce; Markdown ## era convertido em h3, gerando heading-order no axe completo. Home agora reconcilia draft quando a query canônica muda, com atualização de estado condicional/guardada antes de commit de render (padrão de ajuste de estado a mudança de entrada), sem depender de evento popstate. Plugin remarkHeadingOrder normaliza a árvore Markdown abaixo do h1 do post; não altera código nem habilita HTML. Testes de regressão acrescentados para logotipo/histórico e hierarquia. Demais fluxos e identidade preservados.
+
 ## T10 — estratégia de testes implementada
 Vitest/jsdom + Testing Library/user-event + MSW; 31 cenários com respostas HTTP determinísticas, incluindo falha perfil/detalhe, nulos, busca/limpeza/contagem, paginação/reset, especiais, debounce, resposta antiga, 404, PR, rede, 500, 403/429, Retry-After, loading, GFM e segurança. Playwright Chromium: 11 cenários, sete larguras, acesso direto/reload, retorno/URL, teclado e axe (zero violações nos estados auditados). scripts/check-api.mjs verifica integração pública separada (não usa token). E2E usa fixtures só no teste, nunca no bundle. URL com página além do total oferece ação para primeira página. CI e relatório final serão registrados em T12–13.
 
