@@ -7,9 +7,14 @@ export const api = axios.create({
 })
 
 export class ApiError extends Error {
-  constructor(message: string, public readonly kind: 'not-found' | 'rate-limit' | 'network' | 'http', public readonly retryAt?: number) {
+  readonly kind: 'not-found' | 'rate-limit' | 'network' | 'http'
+  readonly retryAt?: number
+
+  constructor(message: string, kind: ApiError['kind'], retryAt?: number) {
     super(message)
     this.name = 'ApiError'
+    this.kind = kind
+    this.retryAt = retryAt
   }
 }
 
