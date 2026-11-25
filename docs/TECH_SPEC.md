@@ -6,10 +6,10 @@ O axe completo com dados reais encontrou também label-content-name-mismatch nos
 Regressões reproduzidas antes da correção: Link do logotipo removia q da URL, mas o draft antigo voltava a inseri-lo após debounce; Markdown ## era convertido em h3, gerando heading-order no axe completo. Home agora reconcilia draft quando a query canônica muda, com atualização de estado condicional/guardada antes de commit de render (padrão de ajuste de estado a mudança de entrada), sem depender de evento popstate. Plugin remarkHeadingOrder normaliza a árvore Markdown abaixo do h1 do post; não altera código nem habilita HTML. Testes de regressão acrescentados para logotipo/histórico e hierarquia. Demais fluxos e identidade preservados.
 
 ## T10 — estratégia de testes implementada
-Vitest/jsdom + Testing Library/user-event + MSW; **34 cenários** com respostas HTTP determinísticas, incluindo falha perfil/detalhe, nulos, busca/limpeza/contagem, paginação/reset, especiais, debounce, resposta antiga, 404, PR, rede, 500, 403/429, Retry-After, loading, GFM, segurança e regressões da auditoria. Playwright Chromium: **12 cenários**, sete larguras, acesso direto/reload, retorno/URL/histórico, clique no padding, teclado, contraste/foco e axe completo (zero violações nos estados finais auditados). scripts/check-api.mjs e scripts/audit-academic.mjs verificam integração pública separada (sem token/mocks); o segundo também inspeciona histórico/assets, contraste e layout real. E2E usa fixtures só no teste, nunca no bundle. URL com página além do total oferece ação para primeira página. Relatórios atuais em AUDITORIA_FINAL.md e evidencias/auditoria/.
+Vitest/jsdom + Testing Library/user-event + MSW; **34 cenários** com respostas HTTP determinísticas, incluindo falha perfil/detalhe, nulos, busca/limpeza/contagem, paginação/reset, especiais, debounce, resposta antiga, 404, PR, rede, 500, 403/429, Retry-After, loading, GFM, segurança e regressões da auditoria. Playwright Chromium: **13 cenários**, oito larguras, acesso direto/reload, retorno/URL/histórico, clique no padding, teclado, contraste/foco e axe completo (zero violações nos estados finais auditados). scripts/check-api.mjs e scripts/audit-academic.mjs verificam integração pública separada (sem token/mocks); o segundo também inspeciona histórico/assets, contraste e layout real. E2E usa fixtures só no teste, nunca no bundle. URL com página além do total oferece ação para primeira página. Relatórios atuais em AUDITORIA_FINAL.md e evidencias/auditoria/.
 
 ## T09 — responsividade/a11y e desempenho
-Primeira rodada Playwright: sete larguras passaram sem overflow na Home e detalhe; axe não detectou violações nas páginas testadas. Um E2E encontrou card sem nome no navegador (article dentro de link): corrigido com aria-labelledby no título. Verificação completa TypeScript identificou falta da lib DOM nas avaliações Playwright; adicionada ao projeto de ferramentas. Nenhuma regra foi desativada. Detalhe/Markdown carregados via lazy/Suspense para retirar aviso de bundle >500k; fontes limitadas ao subset latin (inclui português).
+Primeira rodada Playwright: oito larguras passaram sem overflow na Home e detalhe; axe não detectou violações nas páginas testadas. Um E2E encontrou card sem nome no navegador (article dentro de link): corrigido com aria-labelledby no título. Verificação completa TypeScript identificou falta da lib DOM nas avaliações Playwright; adicionada ao projeto de ferramentas. Nenhuma regra foi desativada. Detalhe/Markdown carregados via lazy/Suspense para retirar aviso de bundle >500k; fontes limitadas ao subset latin (inclui português).
 
 ## T08 — rotas/Markdown
 AppRoutes declara /, /post/:issueNumber e *. PostDetails consulta individualmente e valida inteiro positivo seguro, rejeita PR. Estado from contém só caminho local / ou /? para retorno; acesso direto retorna /. Markdown via react-markdown + GFM sem rehype-raw, skipHtml e transformação segura padrão de URLs. Headings normalizados por pilha na AST abaixo do h1, sem saltos (corrige o deslocamento ingênuo inicial); tabelas com rolagem própria, imagens responsivas/lazy, links externos com noopener. Foco no main/título de documento/scroll tratados na mudança de rota, não a cada tecla de busca.
@@ -49,7 +49,27 @@ Node 24.11.1; npm 9.3.1; React/React DOM 19.3.1; TypeScript 5.9.3; Vite 8.3.8; p
 | Efeito/cancelamento/erros/retry | hooks/useResource.ts, services/api.ts, components/States.tsx | RF-13/14; RN-08/09 |
 | Tailwind, teclado, foco, contraste e 404 | styles/global.css, components/Header.tsx, App.tsx, pages/NotFound.tsx | RF-15/16; RNF-01/04 |
 
-Os caminhos sem prefixo na tabela são relativos a src/, exceto scripts/. Props de ProfileCard são internas; IssueCard recebe issue; IssueList recebe issues; SearchInput recebe value/pending/onChange/onSubmit; Pagination recebe page/pages/disabled/onPage; ErrorState recebe error/onRetry e LoadingState recebe message. AppRoutes cuida da rota/foco; o plugin Markdown só normaliza headings na AST, não busca nem executa dados externos.
+Os caminhos sem prefixo na tabela são relativos a src/, exceto scripts/.
+
+### Componentes, Props e responsabilidades
+| Componente | Props/entrada | Responsabilidade | Não faz |
+|---|---|---|---|
+| Header | Nenhuma; usa Link | Identidade, retorno à Home | Não consulta API nem controla busca |
+| ProfileCard | Nenhuma; usa useResource/getProfile | Perfil real, nulos, loading/erro próprios | Não bloqueia a listagem |
+| SearchInput | value, pending, onChange, onSubmit | Form/label, input controlado, limpar, ajuda | Não agenda debounce nem altera URL diretamente |
+| IssueCard | issue: GitHubIssue | TítuloLink, data, resumo, comentários e clique estendido | Não busca detalhe |
+| IssueList | issues: GitHubIssue[] | Lista acessível e grade responsiva com key por id | Não pagina nem consulta |
+| Pagination | page, pages, disabled, onPage | Anterior/Próxima, estado desabilitado e página atual | Não calcula total nem fatia arrays |
+| LoadingState | message? | Status visual e aria-busy do pai | Não decide quando carregar |
+| ErrorState | error: ApiError, onRetry | Mensagem distinta, alerta e retry/espera | Não repete a requisição automaticamente |
+| EmptyState | Nenhuma | Nenhum resultado com orientação | Não confunde vazio com falha |
+| MarkdownContent | content: string \| null | GFM seguro, headings, links, imagens e tabelas | Não habilita HTML nem busca dados |
+| Home | Rota e URL q/page | Draft, debounce, contagem, paginação e estados | Não renderiza detalhe |
+| PostDetails | Parâmetro issueNumber/rota | Requisição individual, título, metadados, Markdown e retorno | Não reutiliza o objeto da lista |
+| NotFound | publication? | 404 de rota ou de publicação | Não faz chamada remota |
+| AppRoutes | Nenhuma | Rotas, lazy/Suspense, foco, scroll e título base | Não concentra HTTP |
+
+AppRoutes cuida da rota/foco; o plugin Markdown só normaliza headings na AST, não busca nem executa dados externos. Todas as Props são tipadas; listas usam key estável por id.
 
 ```
 src/
@@ -73,6 +93,8 @@ Fluxo: usuário → Home/query/page → serviço Axios → GitHub → useResourc
 
 ### Contratos e endpoints
 GitHubUser inclui login, name/bio/company nulos, avatar_url, followers e html_url. GitHubIssue contém id, number, title, body nulo, created_at, comments, html_url, user nulo e pull_request opcional. SearchResponse contém total_count, incomplete_results e items. Todos estão em src/types/github.ts; tipos não constituem validação runtime arbitrária.
+
+O cliente Axios usa baseURL `https://api.github.com`, timeout de 15 s, `Accept: application/vnd.github+json` e `X-GitHub-Api-Version: 2022-11-28`, sem Authorization. Erros são normalizados em `ApiError` com `kind`: `not-found` (404), `rate-limit` (403 de quota/429, com Retry-After/reset quando presente), `network` (sem resposta) e `http` (demais status, incluindo 422 de busca). `useResource` guarda snapshot por chave/tentativa, aborta no cleanup, ignora resposta de sinal abortado e expõe retry manual.
 
 | Endpoint | Uso |
 |---|---|

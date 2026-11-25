@@ -2,7 +2,7 @@
 
 **Registro histórico da primeira tentativa.** Situação atual e evidências exigidas pelo Notion: [AI_USAGE.md](AI_USAGE.md). O acesso às seções 1–14 foi recuperado na continuação; a implementação avançou e este diagnóstico não representa o estado final.
 
-Ferramenta: OpenCode com assistente GPT-6.1 Sol Fast. Pedido real de entrada: mensagem do usuário intitulada **“GitHub Blog — Desenvolvimento completo da atividade de recuperação”**, seções 1 a 28. A mensagem integral permanece no histórico desta sessão; este arquivo é um índice e resumo, não uma transcrição integral. Exportar a sessão ou anexar cópia integral do prompt para preservar a evidência completa.
+Ferramenta: OpenCode. O identificador exato do modelo não foi preservado como requisito nem usado como prova de autoria. Pedido real de entrada: mensagem do usuário intitulada **“GitHub Blog — Desenvolvimento completo da atividade de recuperação”**, seções 1 a 28. A mensagem integral permanece no histórico desta sessão; este arquivo é um índice e resumo, não uma transcrição integral. Exportar a sessão ou anexar cópia integral do prompt para preservar a evidência completa.
 
 O pedido instrui consultar Notion/Figma antes do código, desenvolver a aplicação completa, testar, documentar, versionar e publicar sem inventar resultados. A IA apoiou a inspeção inicial, verificação das ferramentas disponíveis e criação dos rascunhos SPEC. Nenhum código de aplicação foi gerado nesta etapa.
 

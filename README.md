@@ -61,7 +61,7 @@ npm run preview
 ```
 `typecheck`/build executam `tsc -b`, verificando os projetos app e ferramentas; o comando isolado `tsc --noEmit` da raiz não substitui essa verificação porque a raiz contém references.
 
-**Resultados locais atuais:** **34 testes Vitest + 12 Playwright aprovados**, zero falhas finais; lint/types/build aprovados após npm ci. Os mesmos 12 E2E passaram na URL de produção. E2E cobre Home/detalhe em 320, 375, 390, 768, 1024, 1440 e 1920px, teclado, contraste/foco e axe completo. Isso não equivale a conformidade integral WCAG. Testes padrão usam MSW/interceptação, sem depender permanentemente do GitHub; a auditoria pública real é separada.
+**Resultados locais atuais:** **34 testes Vitest + 13 Playwright aprovados**, zero falhas finais; lint/types/build aprovados após npm ci. Os mesmos 13 E2E passaram na URL de produção. E2E cobre Home/detalhe em 320, 375, 390, 768, 1024, 1280, 1440 e 1920px, teclado, contraste/foco e axe completo. Isso não equivale a conformidade integral WCAG. Testes padrão usam MSW/interceptação, sem depender permanentemente do GitHub; a auditoria pública real é separada.
 
 Integração pública real, separada:
 ```bash
@@ -95,6 +95,7 @@ Configuração Vercel validada: Vite, `npm ci`, `npm run build`, saída `dist`, 
 - [TASKS — etapas e commits](docs/TASKS_SPEC.md)
 - [Matriz da rubrica oficial](docs/RUBRICA.md)
 - [Auditoria final: rubrica, estimativa e condições mínimas](docs/AUDITORIA_FINAL.md)
+- **[Conferência definitiva Notion × código × produção](docs/CONFERENCIA_NOTION_FINAL.md)** — 61/65 integrais, 2 parciais e 2 não verificáveis (nota/demonstração), sem declarar aprovação
 - [Checklist específico de entrega no Blackboard](docs/ENTREGA_BLACKBOARD.md)
 - [Relatório final e resultados verificáveis](docs/RELATORIO_FINAL.md)
 - [Uso de IA — evidências reais](docs/AI_USAGE.md)
@@ -112,6 +113,6 @@ O enunciado principal (seções 1–14), a rubrica e as condições da seção 1
 
 Auditoria completa reproduzível: `node scripts/validate.mjs` (inclui npm ci, suíte e integração pública; exige Node 24, Chromium instalado, Git e rede). Saídas reais: [validacao-final.txt](docs/evidencias/validacao-final.txt) e [validacao-final.json](docs/evidencias/validacao-final.json). Para E2E contra produção, defina `PLAYWRIGHT_BASE_URL=https://github-blog-arthurdias256.vercel.app` antes de `npm run test:e2e`; os cenários HTTP continuam determinísticos com interceptação. As capturas em `producao/` usam API real sem interceptação.
 
-Nova auditoria pública reproduzível: `node scripts/audit-academic.mjs` (sem token/mocks; API, assets, histórico, axe completo, contraste/foco e sete larguras). Gera [verificacao-publica.json](docs/evidencias/auditoria/verificacao-publica.json) e screenshots. As correções pré-entrega foram limitadas ao logotipo/busca, headings Markdown, nome acessível dos cards, contorno do campo e prefixo @. Grade/cores gerais/funcionalidades foram preservadas.
+Nova auditoria pública reproduzível: `node scripts/audit-academic.mjs` (sem token/mocks; API, assets, histórico, axe completo, contraste/foco e oito larguras). Gera [verificacao-publica.json](docs/evidencias/auditoria/verificacao-publica.json) e screenshots. As correções pré-entrega foram limitadas ao logotipo/busca, headings Markdown, nome acessível dos cards, contorno do campo e prefixo @. Grade/cores gerais/funcionalidades foram preservadas.
 
 A estimativa fundamentada é **97/100 (9,7)** nos pesos oficiais, **não nota atribuída nem aprovação garantida**. Reservas visuais e validação/explicação pessoal constam na auditoria. O aluno precisa preencher verificações reais em AI_USAGE.md, conferir Blackboard e apresentar individualmente.

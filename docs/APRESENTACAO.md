@@ -81,7 +81,7 @@ Revise este roteiro, os arquivos citados e as dez issues. Execute `npm ci`, `npm
 
 **Quais evidências há de contraste/foco?** Produção registrou texto do input 10,557:1, link externo 5,579:1 e borda 3,051:1 contra página/3,173:1 contra campo. Há teste de :focus-visible e outline sólido 2px. Axe completo passou nas duas páginas; isso não equivale a auditoria WCAG integral em todos os leitores de tela.
 
-**Os testes realmente usam o GitHub?** Os 34 Vitest e 12 E2E são determinísticos com mocks/interceptação. A integração pública e scripts/audit-academic.mjs são separados, sem token e sem mocks. O JSON registra requisições reais de Users, Search API e detalhe, além de duas páginas 6+4 e busca React=3. A reexecução de 12 E2E na URL publicada não adiciona 12 cenários únicos ao total 46.
+**Os testes realmente usam o GitHub?** Os 34 Vitest e 13 E2E são determinísticos com mocks/interceptação. A integração pública e scripts/audit-academic.mjs são separados, sem token e sem mocks. O JSON registra requisições reais de Users, Search API e detalhe, além de duas páginas 6+4 e busca React=3. A reexecução de 13 E2E na URL publicada não adiciona 13 cenários únicos ao total 47.
 
 **O GitHub Actions vermelho reprova?** A seção 14 lista pipeline de CI como extra opcional, sem peso próprio nem condição eliminatória. O job sequer iniciou por bloqueio de faturamento da conta. Os logs locais/publicados estão disponíveis. Não se deve declarar CI aprovada nem esconder o bloqueio. A explicação se baseia no enunciado atual; regras adicionais do Blackboard precisam ser conferidas.
 

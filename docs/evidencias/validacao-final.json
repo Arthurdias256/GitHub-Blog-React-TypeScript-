@@ -4,57 +4,57 @@
     {
       "command": "npm ci",
       "exitCode": 0,
-      "durationMs": 77526
+      "durationMs": 57677
     },
     {
       "command": "npm ls vite",
       "exitCode": 0,
-      "durationMs": 4999
+      "durationMs": 4397
     },
     {
       "command": "npm run lint",
       "exitCode": 0,
-      "durationMs": 15016
+      "durationMs": 15920
     },
     {
       "command": "npx tsc --noEmit",
       "exitCode": 0,
-      "durationMs": 3690
+      "durationMs": 3867
     },
     {
       "command": "npm run typecheck",
       "exitCode": 0,
-      "durationMs": 13386
+      "durationMs": 15249
     },
     {
       "command": "npm run test",
       "exitCode": 0,
-      "durationMs": 29357
+      "durationMs": 29809
     },
     {
       "command": "npm run test:e2e",
       "exitCode": 0,
-      "durationMs": 49794
+      "durationMs": 53842
     },
     {
       "command": "npm run build",
       "exitCode": 0,
-      "durationMs": 17466
+      "durationMs": 18720
     },
     {
       "command": "npm run test:api",
       "exitCode": 0,
-      "durationMs": 6624
+      "durationMs": 6620
     },
     {
       "command": "npm audit",
       "exitCode": 0,
-      "durationMs": 4660
+      "durationMs": 4868
     },
     {
       "command": "node scripts/audit-secrets.mjs",
       "exitCode": 0,
-      "durationMs": 477
+      "durationMs": 506
     }
   ]
 }

@@ -10,7 +10,7 @@ Fonte: Notion, seções 11 e 13. Data, horário, local de envio e regras adicion
 - [x] README com instalação, configuração, scripts, arquitetura, links e limitações.
 - [x] docs/AI_USAGE.md com mais de três registros e distinção entre verificação do agente/aluno.
 - [x] Testes e screenshots reais de Home, busca, detalhe e mobile.
-- [x] Lint, TypeScript, 34 Vitest, 12 E2E e build aprovados; logs anexos ao repositório.
+- [x] Lint, TypeScript, 34 Vitest, 13 E2E e build aprovados; logs anexos ao repositório.
 - [x] CI vermelho explicado com anotação real; não declarado teste reprovado nem ocultado.
 
 ## 2. Ações que o aluno precisa realizar antes de enviar
@@ -19,7 +19,7 @@ Fonte: Notion, seções 11 e 13. Data, horário, local de envio e regras adicion
 - [ ] Executar sua verificação pessoal de pelo menos três evidências de IA e preencher o registro no final de AI_USAGE.md com data, ação e resultado reais.
 - [ ] Abrir os dois links abaixo em janela anônima, sem login: conferir repositório/SPEC/issues públicos e aplicação acessível.
 - [ ] Demonstrar Home → busca → página → detalhe → reload → Voltar, sem dados fictícios. Conferir pelo menos um celular/viewport mobile.
-- [ ] Confirmar que a última revisão e docs/AUDITORIA_FINAL.md aparecem no GitHub; comparar o último commit com `git log -1` local, se disponível.
+- [ ] Confirmar que a última revisão e docs/CONFERENCIA_NOTION_FINAL.md aparecem no GitHub; comparar o último commit com `git log -1` local, se disponível.
 - [ ] Testar a apresentação com APRESENTACAO.md e explicar Props, estados, efeitos, Hook, Axios, tipos e rotas sem inventar experiências.
 
 ## 3. Texto-base para o campo de entrega
@@ -34,7 +34,7 @@ https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-
 Aplicação publicada:
 https://github-blog-arthurdias256.vercel.app
 
-Especificações, testes, evidências de IA, screenshots e auditoria final estão na pasta docs/ do repositório.
+Especificações, testes, evidências de IA, screenshots e conferência definitiva estão na pasta docs/ do repositório (docs/CONFERENCIA_NOTION_FINAL.md).
 As publicações são issues reais do próprio repositório.
 Uso de OpenCode/IA documentado em docs/AI_USAGE.md.
 GitHub Actions não iniciou por bloqueio de faturamento da conta; validações locais e da aplicação publicada estão registradas.

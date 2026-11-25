@@ -1,5 +1,7 @@
 # Auditoria final acadêmica — GitHub Blog
 
+> **Auditoria definitiva mais recente:** [CONFERENCIA_NOTION_FINAL.md](CONFERENCIA_NOTION_FINAL.md). Este arquivo preserva a rodada anterior; a estimativa de 97/100 foi reavaliada de forma independente e mantida, com 34 Vitest + 13 E2E e 8 larguras.
+
 **Data:** 25/11/2026. **Resultado técnico:** verificações aprovadas após correções pontuais e republicação. **Resultado acadêmico:** não pode ser declarado aprovado antes da avaliação e apresentação individual.
 
 - Código: https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-
@@ -18,7 +20,7 @@ Os nomes e máximos são transcritos da seção 12. A coluna **estimada é juíz
 | Detalhe do post e roteamento | 15 | 15 | “/post/:number, requisição individual, Markdown e navegação”. /post/:issueNumber equivalente; GET individual, conteúdo integral, GFM, cabeçalho, links, retorno e reload direto publicados. | Atendido tecnicamente |
 | Arquitetura React, TypeScript, Axios e Hooks | 15 | 15 | “Componentização, Props, tipos, serviços, useState/useEffect e custom Hook”. Diretórios exigidos, interfaces, useResource/AbortController, Axios central, estado e efeitos; lint/tsc -b/build aprovados. | Atendido tecnicamente; explicação individual pendente |
 | Figma, Tailwind, responsividade e acessibilidade | 10 | 8 | “Qualidade visual, mobile, contraste, labels e foco”. Nunito/base escura/azul/perfil sobreposto/grade/detalhe mantidos. Sete larguras, contraste medido, foco 2px, axe completo Home/detalhe sem violações após correções. Header/ícones/medidas são aproximações, não exportação pixel-perfect. | Parcial: limite de fidelidade exata |
-| Resiliência, testes e tratamento de erros | 5 | 5 | “Loading, erros, rate limit, 404, retry e cenários testados”. 34 Vitest + 12 E2E locais aprovados, mesmos 12 E2E em produção; 403/429/reset/500/rede/404/vazio e retry testados com mocks; API real verificada separadamente. | Atendido tecnicamente |
+| Resiliência, testes e tratamento de erros | 5 | 5 | “Loading, erros, rate limit, 404, retry e cenários testados”. 34 Vitest + 13 E2E locais aprovados, mesmos 13 E2E em produção; 403/429/reset/500/rede/404/vazio e retry testados com mocks; API real verificada separadamente. | Atendido tecnicamente |
 | PRD_SPEC, TECH_SPEC, TASKS_SPEC e AGENTS.md | 10 | 10 | “Coerência, rastreabilidade, checklist e especificações utilizáveis”. Seção 7 conferida item a item; aceites RF explícitos, RN identificadas, fluxo/contratos/decisões, tarefas com pré-requisitos/RF/RN/arquivos/pronto/status/commits; documentos anteriores ao código confirmados no histórico. | Atendido documentalmente |
 | Git/GitHub, deploy, README e uso do OpenCode | 5 | 4 | “Repositório, publicação, commits, evidências de IA e explicação”. Público, histórico preservado/incremental, Vercel READY, README/screenshots/logs e mais de três registros IA. Falta confirmar pessoalmente as verificações do aluno nos registros de IA e realizar a explicação. CI opcional não fundamenta desconto automático. | Parcial: validação e explicação pessoais |
 | **Total** | **100** | **97** | Pesos oficiais somados sem bônus por extras. | **Estimativa condicional, não nota atribuída** |
@@ -88,7 +90,7 @@ O histórico confirma SPEC/AGENTS em 10fa708 antes do setup 241c88b; os document
 |---|---|
 | Vitest | **34 aprovados, 0 reprovados**, dois arquivos |
 | Playwright local | **12 aprovados, 0 reprovados** |
-| Playwright em produção | **12 aprovados, 0 reprovados**, mesma suíte, não 12 cenários únicos extras |
+| Playwright em produção | **13 aprovados, 0 reprovados**, mesma suíte, não 13 cenários únicos extras |
 | ESLint / TypeScript completo / build | Aprovados |
 | npm audit | Zero vulnerabilidades relatadas |
 | Integração pública | Perfil/repo públicos; 10 issues; páginas 6+4; React=3; inexistente=0; detalhe e IDs sem duplicação |
@@ -98,7 +100,7 @@ O histórico confirma SPEC/AGENTS em 10fa708 antes do setup 241c88b; os document
 | Hospedagem | Home e acesso direto ao detalhe HTTP 200, assets com MIME correto, nosniff e frame DENY |
 | Republicação | Deployment **dpl_29GBthq9wSLriZ21ttPkP152HjdB**, READY, alias público verificado |
 
-Total da suíte: **46 cenários únicos** (34 + 12). Houve falhas reais durante a auditoria e correções subsequentes; o resultado acima é o último, não uma afirmação de que nunca houve falha. A detecção de credenciais é heurística, não prova matemática de ausência de qualquer segredo possível.
+Total da suíte: **47 cenários únicos** (34 + 13). Houve falhas reais durante a auditoria e correções subsequentes; o resultado acima é o último, não uma afirmação de que nunca houve falha. A detecção de credenciais é heurística, não prova matemática de ausência de qualquer segredo possível.
 
 ## 7. GitHub Actions e impacto na nota
 A consulta pública mais recente registrada em verificacao-publica.json identificou run **45653281397**, commit ed78ce9, status completed/failure, **nenhum step executado** e a anotação:
