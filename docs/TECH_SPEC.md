@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T05 — perfil
+ProfileCard usa useResource/getProfile, com erro independente das publicações. Props nos estados; dados do perfil tipados; fallback de nome/bio, empresa omitida se nula; avatar com alt/dimensões, link externo seguro. Corresponde RF-01/RF-02/RF-13.
+
 ## T04 — dados e resiliência
 Configuração em src/config/github.ts e .env.example (Arthurdias256). Interfaces GitHubUser, GitHubIssue, SearchResponse. Axios público com timeout 15s, Accept/API-Version. Erros distinguem rede/404/HTTP/rate limit; retry respeita reset/retry-after quando informado. Hook useResource cancela e ignora respostas antigas, sem retry automático. Consulta fixa repo/is:issue + texto entre aspas, ordenada por criação; filtragem defensiva de PR e rejeição no detalhe. Nenhum token no cliente. Permissões verificadas por credencial local sem imprimir segredo: login Arthurdias256, repositório público, admin/push true; 0 issues antes da preparação.
 
