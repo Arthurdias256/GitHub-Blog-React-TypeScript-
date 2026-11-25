@@ -11,7 +11,7 @@ Status de continuação: **implementação autorizada; T01 documentada**. Notion
 - [x] T06: IssueCard/IssueList, resumos/datas/comentários e listagem real; lint/build aprovados. Script para dez issues no único repositório autorizado.
 - [ ] Dados RF-03: primeira issue existe (/issues/1); criação das seguintes recebeu HTTP 500/503 do GitHub. Reexecutar script idempotente posteriormente; não afirmar dez criadas até verificar.
 - [x] T07: SearchInput/Pagination, debounce/cancelamento, contagem, estado URL, limites e estados de consulta; lint/build aprovados. Testes automatizados em T10.
-- [ ] T08: detalhes e Markdown.
+- [x] T08: rotas, consulta individual, retorno, GFM seguro e 404; lint/build aprovados. Fluxos de acesso direto e navegação cobertos em T10.
 - [ ] T09: responsividade/acessibilidade.
 - [ ] T10: suíte automatizada.
 - [ ] T11: documentação final e evidências.

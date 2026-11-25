@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T08 — rotas/Markdown
+AppRoutes declara /, /post/:issueNumber e *. PostDetails consulta individualmente e valida inteiro positivo seguro, rejeita PR. Estado from contém só caminho local / ou /? para retorno; acesso direto retorna /. Markdown via react-markdown + GFM sem rehype-raw, skipHtml e transformação segura padrão de URLs. Títulos Markdown deslocados um nível; tabelas com rolagem própria, imagens responsivas/lazy, links externos com noopener. Foco no main/título de documento/scroll tratados na mudança de rota, não a cada tecla de busca.
+
 ## T07 — pesquisa/paginação
 Home controla draft, query/page na URL e efeito debounce 500ms (Enter confirma imediatamente). Normaliza espaços, limita termo a 200 caracteres; nova consulta remove page. URL restaura estado ao voltar. useResource usa chave de consulta/página e cancela a anterior. Resultados antigos ficam ocultos durante nova digitação e controles desativados. Páginas reais com per_page=6; limite conservador 166 páginas/996 itens para nunca pedir uma página que cruze 1.000. Contagem total oficial preservada, aviso de limite e incomplete_results. Query vazia também usa Search API conforme opção oficial. Filtro de PR no servidor e defensivo no cliente.
 
