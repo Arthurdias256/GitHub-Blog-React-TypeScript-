@@ -10,7 +10,7 @@ Status de continuação: **implementação autorizada; T01 documentada**. Notion
 - [x] T05: ProfileCard integrado ao endpoint real; campos opcionais, loading e retry. Lint/build aprovados; integração real auditada em T10.
 - [x] T06: IssueCard/IssueList, resumos/datas/comentários e listagem real; lint/build aprovados. Script para dez issues no único repositório autorizado.
 - [ ] Dados RF-03: primeira issue existe (/issues/1); criação das seguintes recebeu HTTP 500/503 do GitHub. Reexecutar script idempotente posteriormente; não afirmar dez criadas até verificar.
-- [ ] T07: busca e paginação.
+- [x] T07: SearchInput/Pagination, debounce/cancelamento, contagem, estado URL, limites e estados de consulta; lint/build aprovados. Testes automatizados em T10.
 - [ ] T08: detalhes e Markdown.
 - [ ] T09: responsividade/acessibilidade.
 - [ ] T10: suíte automatizada.

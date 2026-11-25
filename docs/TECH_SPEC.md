@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T07 — pesquisa/paginação
+Home controla draft, query/page na URL e efeito debounce 500ms (Enter confirma imediatamente). Normaliza espaços, limita termo a 200 caracteres; nova consulta remove page. URL restaura estado ao voltar. useResource usa chave de consulta/página e cancela a anterior. Resultados antigos ficam ocultos durante nova digitação e controles desativados. Páginas reais com per_page=6; limite conservador 166 páginas/996 itens para nunca pedir uma página que cruze 1.000. Contagem total oficial preservada, aviso de limite e incomplete_results. Query vazia também usa Search API conforme opção oficial. Filtro de PR no servidor e defensivo no cliente.
+
 ## T06 — catálogo
 Home consulta Search API sem termo (permitido RN-04); IssueCard/IssueList com Props tipadas, keys por id, metadados e resumo sem blocos Markdown cru. Datas via Intl em português. scripts/seed-issues.mjs é administrativo/idempotente por título, verifica usuário/permissões/repositório público e lê credencial apenas em memória; não é importado no cliente. Publicações técnicas preparadas com apoio de IA e identificação explícita.
 
