@@ -1,3 +1,58 @@
 @import "tailwindcss";
+@import "@fontsource/nunito/400.css";
+@import "@fontsource/nunito/700.css";
 
-body { margin: 0; background: #071422; color: #afc2d4; font-family: sans-serif; }
+@theme {
+  --font-sans: 'Nunito', sans-serif;
+  --color-background: #071422;
+  --color-profile: #0b1b2b;
+  --color-post: #112131;
+  --color-input: #040f1a;
+  --color-border: #1c2f41;
+  --color-label: #7b96b2;
+  --color-text: #afc2d4;
+  --color-subtitle: #c4d4e3;
+  --color-title: #e7edf4;
+  --color-accent: #3294f8;
+}
+
+@layer base {
+  body { @apply m-0 bg-background font-sans text-text; line-height: 1.6; }
+  * { box-sizing: border-box; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 5px; }
+  button, a, input { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), a { cursor: pointer; }
+  button:disabled { cursor: not-allowed; opacity: .5; }
+  h1, h2, h3 { @apply text-title font-bold; }
+}
+
+@layer components {
+  .page-container { @apply mx-auto w-full max-w-[904px] px-5; }
+  .panel { @apply rounded-[10px] bg-profile p-6 shadow-xl sm:p-8; }
+  .external-link { @apply inline-flex min-h-8 items-center gap-2 text-xs font-bold uppercase text-accent underline-offset-4 hover:underline; }
+  .action { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-bold text-subtitle enabled:hover:border-accent enabled:hover:text-accent; }
+  .metadata { @apply flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text; }
+  .metadata > span { @apply inline-flex min-w-0 items-center gap-2 break-words; }
+  .metadata svg { @apply size-[18px] shrink-0 text-label; }
+  .markdown { @apply min-w-0 break-words text-text; overflow-wrap: anywhere; }
+  .markdown > * + * { margin-top: 1.25rem; }
+  .markdown h1 { @apply text-2xl; }
+  .markdown h2 { @apply mt-8 text-xl; }
+  .markdown h3 { @apply mt-6 text-lg; }
+  .markdown a { @apply text-accent underline underline-offset-4; }
+  .markdown ul { @apply list-disc space-y-2 pl-6; }
+  .markdown ol { @apply list-decimal space-y-2 pl-6; }
+  .markdown blockquote { @apply border-l-4 border-accent pl-4 text-subtitle; }
+  .markdown pre { @apply max-w-full overflow-x-auto rounded-md bg-input p-4 text-sm; }
+  .markdown code { @apply rounded bg-input px-1 py-0.5 text-sm text-subtitle; }
+  .markdown pre code { @apply bg-transparent p-0; }
+  .markdown img { @apply h-auto max-w-full rounded-md; }
+  .markdown table { @apply w-full border-collapse text-left text-sm; }
+  .markdown th, .markdown td { @apply border border-border px-3 py-2; }
+  .markdown th { @apply bg-post text-title; }
+  .markdown hr { @apply border-border; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; }
+}

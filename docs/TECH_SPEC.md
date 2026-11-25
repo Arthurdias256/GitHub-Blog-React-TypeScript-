@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T03 — visual
+Nunito 400/700 hospedada localmente por @fontsource, line-height 160%. Tokens dark/azul seguem o guia visual observado; valores hex, container 864px útil, Header 296px e sobreposição 64px são aproximações declaradas (sem exportação exata). Header/ícone terminal e linhas geométricas recriados em HTML/SVG, não são assets originais nem screenshots do Figma. Sem tema extra ou gradientes. Tailwind v4 via plugin Vite e @theme; componentes compartilham tokens. Foco visível e skip link desde a base.
+
 ## T02 — instalação validada
 Setup manual para preservar pasta existente (não vazia). Node 24.11.1/npm 9.3.1 compatíveis com engines do Vite. Vite **8.3.8**, plugin React 6.3.0, Tailwind 4.3.5 e Vitest 5.1.2 confirmados por npm. Lockfile preservado. npm install: zero vulnerabilidades. ESLint e build/tsc -b passaram no scaffold. Sem falhas nativas Rolldown no Windows. Versões completas no package-lock.json; ESLint 9 gera aviso de suporte descontinuado no registro, mas permanece funcional e não tem vulnerabilidades no audit desta instalação.
 

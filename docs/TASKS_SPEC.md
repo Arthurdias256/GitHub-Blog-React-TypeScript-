@@ -5,7 +5,7 @@ Status de continuação: **implementação autorizada; T01 documentada**. Notion
 ## Execução atual
 - [x] T01: requisitos oficiais, rubrica, planejamento e orientações registrados antes do código.
 - [x] T02: setup Vite 8.3.8 e ferramentas; npm ls vite, lint e build (inclui tsc -b) aprovados no scaffold. T01: 10fa708.
-- [ ] T03: identidade visual e Header.
+- [x] T03: tokens, Nunito local, Header e estilos compartilhados; validação técnica lint/build. Fidelidade pixel-perfect não afirmada.
 - [ ] T04: serviços GitHub e configuração.
 - [ ] T05: ProfileCard.
 - [ ] T06: IssueCard/IssueList.
