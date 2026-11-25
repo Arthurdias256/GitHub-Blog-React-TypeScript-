@@ -1,8 +1,10 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Home } from '../pages/Home'
-import { PostDetails } from '../pages/PostDetails'
 import { NotFound } from '../pages/NotFound'
+import { LoadingState } from '../components/States'
+
+const PostDetails = lazy(() => import('../pages/PostDetails').then(module => ({ default: module.PostDetails })))
 
 export function AppRoutes() {
   const { pathname } = useLocation()
@@ -11,5 +13,5 @@ export function AppRoutes() {
     document.getElementById('conteudo')?.focus({ preventScroll: true })
     window.scrollTo(0, 0)
   }, [pathname])
-  return <Routes><Route path="/" element={<Home />} /><Route path="/post/:issueNumber" element={<PostDetails />} /><Route path="*" element={<NotFound />} /></Routes>
+  return <Suspense fallback={<LoadingState message="Carregando publicação…" />}><Routes><Route path="/" element={<Home />} /><Route path="/post/:issueNumber" element={<PostDetails />} /><Route path="*" element={<NotFound />} /></Routes></Suspense>
 }

@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T09 — responsividade/a11y e desempenho
+Primeira rodada Playwright: sete larguras passaram sem overflow na Home e detalhe; axe não detectou violações nas páginas testadas. Um E2E encontrou card sem nome no navegador (article dentro de link): corrigido com aria-labelledby no título. Verificação completa TypeScript identificou falta da lib DOM nas avaliações Playwright; adicionada ao projeto de ferramentas. Nenhuma regra foi desativada. Detalhe/Markdown carregados via lazy/Suspense para retirar aviso de bundle >500k; fontes limitadas ao subset latin (inclui português).
+
 ## T08 — rotas/Markdown
 AppRoutes declara /, /post/:issueNumber e *. PostDetails consulta individualmente e valida inteiro positivo seguro, rejeita PR. Estado from contém só caminho local / ou /? para retorno; acesso direto retorna /. Markdown via react-markdown + GFM sem rehype-raw, skipHtml e transformação segura padrão de URLs. Títulos Markdown deslocados um nível; tabelas com rolagem própria, imagens responsivas/lazy, links externos com noopener. Foco no main/título de documento/scroll tratados na mudança de rota, não a cada tecla de busca.
 

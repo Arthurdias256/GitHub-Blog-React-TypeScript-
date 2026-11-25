@@ -12,7 +12,7 @@ Status de continuação: **implementação autorizada; T01 documentada**. Notion
 - [ ] Dados RF-03: primeira issue existe (/issues/1); criação das seguintes recebeu HTTP 500/503 do GitHub. Reexecutar script idempotente posteriormente; não afirmar dez criadas até verificar.
 - [x] T07: SearchInput/Pagination, debounce/cancelamento, contagem, estado URL, limites e estados de consulta; lint/build aprovados. Testes automatizados em T10.
 - [x] T08: rotas, consulta individual, retorno, GFM seguro e 404; lint/build aprovados. Fluxos de acesso direto e navegação cobertos em T10.
-- [ ] T09: responsividade/acessibilidade.
+- [x] T09: sete larguras sem overflow, teclado e axe na Home/detalhe; nome acessível dos cards corrigido após falha E2E real. Compilação de testes corrigida. Nova execução exigida em T10.
 - [ ] T10: suíte automatizada.
 - [ ] T11: documentação final e evidências.
 - [ ] T12: build, CI e deploy quando autenticado.
