@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T02 — instalação validada
+Setup manual para preservar pasta existente (não vazia). Node 24.11.1/npm 9.3.1 compatíveis com engines do Vite. Vite **8.3.8**, plugin React 6.3.0, Tailwind 4.3.5 e Vitest 5.1.2 confirmados por npm. Lockfile preservado. npm install: zero vulnerabilidades. ESLint e build/tsc -b passaram no scaffold. Sem falhas nativas Rolldown no Windows. Versões completas no package-lock.json; ESLint 9 gera aviso de suporte descontinuado no registro, mas permanece funcional e não tem vulnerabilidades no audit desta instalação.
+
 **Revisão de continuação:** Node v24.11.1, npm 9.3.1, implementação autorizada. SPEC agora em docs/, conforme Notion. Sem bloqueio de implementação. Usar 6 itens/página via Search API, ordenados created/desc com is:issue e filtro repo. Debounce 500ms, AbortController e proteção de resposta antiga. Tipagem, estados e testes serão registrados por etapa. Histórico inicial abaixo é diagnóstico anterior, não situação atual.
 
 ## Ambiente observado
