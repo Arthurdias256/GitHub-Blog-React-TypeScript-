@@ -94,6 +94,7 @@ Configuração Vercel validada: Vite, `npm ci`, `npm run build`, saída `dist`, 
 - [TECH — decisões, versões e arquitetura](docs/TECH_SPEC.md)
 - [TASKS — etapas e commits](docs/TASKS_SPEC.md)
 - [Matriz da rubrica oficial](docs/RUBRICA.md)
+- [Relatório final e resultados verificáveis](docs/RELATORIO_FINAL.md)
 - [Uso de IA — evidências reais](docs/AI_USAGE.md)
 - [Roteiro para apresentação individual](docs/APRESENTACAO.md)
 - [Notion oficial](https://app.notion.com/p/422dfca74d8d81e194e9dc0aa13ca6f0)
@@ -104,3 +105,7 @@ Configuração Vercel validada: Vite, `npm ci`, `npm run build`, saída `dist`, 
 O Figma foi consultado visualmente nas páginas Projeto/Style Guide; valores CSS e Header/assets são aproximações, não equivalência pixel-perfect. API pública possui rate limit e indexação eventual; não há cache persistente. E2E foi executado em Chromium (não houve auditoria Safari/Firefox). Medidas de acessibilidade não constituem certificação completa.
 
 O enunciado principal (seções 1–14), a rubrica e as condições da seção 13 foram recuperados na continuação. Permanecem pessoais: revisar código/issues, validar evidências, conferir prazos/regras no Blackboard, enviar links e **apresentar individualmente**. A aprovação exige 71/100 e todas as condições mínimas; não há nota garantida pelo agente.
+
+**GitHub Actions:** workflow enviado, mas a execução remota não iniciou nenhum step por bloqueio de faturamento da conta GitHub. Resolver em configurações/suporte da conta e reexecutar Actions; não se trata de teste reprovado. [Evidência](docs/evidencias/github-actions.json). Isso não bloqueou o push nem o deploy Vercel verificado.
+
+Auditoria completa reproduzível: `node scripts/validate.mjs` (inclui npm ci, suíte e integração pública; exige Node 24, Chromium instalado, Git e rede). Saídas reais: [validacao-final.txt](docs/evidencias/validacao-final.txt) e [validacao-final.json](docs/evidencias/validacao-final.json). Para E2E contra produção, defina `PLAYWRIGHT_BASE_URL=https://github-blog-arthurdias256.vercel.app` antes de `npm run test:e2e`; os cenários HTTP continuam determinísticos com interceptação. As capturas em `producao/` usam API real sem interceptação.

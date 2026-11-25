@@ -16,7 +16,7 @@ Fonte: Notion, seções 12 e 13, lidas via navegador MCP; pontuações oficiais,
 
 ## Condições mínimas (seção 13)
 - [x] Fluxos implementados e verificados com API real: perfil; listagem/busca paginada; detalhe dinâmico/Markdown.
-- [x] Código, SPEC e dez issues autorais preparados no repositório correto. Verificar push remoto na auditoria final.
+- [x] Código, SPEC e dez issues preparados no repositório correto e público; push real confirmado, histórico preservado. Issues com apoio explícito de IA exigem revisão pessoal do aluno.
 - [ ] Apresentação individual e explicação das decisões pelo aluno (não verificável pelo agente).
 - [ ] Obter 71/100 ou mais (não verificável; nota exclusiva do professor).
 

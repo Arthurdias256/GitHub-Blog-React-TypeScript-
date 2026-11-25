@@ -67,5 +67,7 @@ Vercel: npm ci, npm run build, dist; vercel.json com fallback SPA sem reescrever
 ## Limitações conhecidas
 Busca GitHub tem limites próprios e atraso eventual de indexação. Consultas de múltiplas palavras são frases; aspas/barras invertidas do usuário são substituídas por espaços para preservar escopo. Não há execução de HTML externo nem syntax highlighting extra. Imagens remotas podem ficar indisponíveis. WCAG integral e equivalência pixel-perfect não são afirmadas. Não foi possível exportar os assets originais do Figma; medidas, cores e Header são aproximações. Prazos e avaliação individual no Blackboard dependem do aluno.
 
+GitHub Actions: run 45652648324/commit 4ac179e consultado por API; falha antes dos steps por conta bloqueada devido a faturamento. Workflow não foi enfraquecido nem testes removidos; reexecutar após usuário resolver a conta. Sucesso local/produção não é declarado como sucesso de CI.
+
 ## Referências técnicas
 [GitHub REST](https://docs.github.com/en/rest), [Vite](https://vite.dev/), [Tailwind](https://tailwindcss.com/), [React Router](https://reactrouter.com/), [Axios](https://axios-http.com/), [Notion/Figma e requisitos](PRD_SPEC.md).

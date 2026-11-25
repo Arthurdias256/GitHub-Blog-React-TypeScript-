@@ -1,0 +1,68 @@
+node.exe : Retrieving projectÔÇª
+No linha:1 caractere:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\Windows\AppData\Roamin ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Retrieving projectÔÇª:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Deploying arthurdias256/github-blog-arthurdias256
+Uploading [--------------------] (0.0B/1.5MB)
+Uploading [=====---------------] (396.5KB/1.5MB)
+Uploading [==========----------] (783.2KB/1.5MB)
+Uploading [===============-----] (1.1MB/1.5MB)
+Uploading [====================] (1.5MB/1.5MB)
+Inspect: https://vercel.com/arthurdias256/github-blog-arthurdias256/12DxXAm14G3ac6B7ScCPxh5JPTGQ [4s]
+Production: https://github-blog-arthurdias256-iacvehcit-arthurdias256.vercel.app [4s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) ÔÇô iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Downloading 86 deployment files...
+Building: Skipping build cache since Node.js version changed from "26.x" to "24.x"
+Building: Running "vercel build"
+Building: Vercel CLI 66.6.0
+Building: Running "install" command: `npm ci`...
+Building: npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm 
+help npmrc` for supported config options.
+Building: npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see 
+https://eslint.org/version-support for other options.
+Building: added 441 packages, and audited 448 packages in 6s
+Building: 165 packages are looking for funding
+Building: run `npm fund` for details
+Building: found 0 vulnerabilities
+Building: npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+Building: npm warn install-scripts   msw@2.15.0 (postinstall: node -e 
+"import('./config/scripts/postinstall.js').catch(() => void 0)")
+Building: npm warn install-scripts
+Building: npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to 
+allow.
+Building: npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm 
+help npmrc` for supported config options.
+Building: > github-blog@1.0.0 build
+Building: > tsc -b && vite build
+[2K[1A[2K[GProduction: https://github-blog-arthurdias256-iacvehcit-arthurdias256.vercel.app [19s]
+Completing...
+Aliased: https://github-blog-arthurdias256.vercel.app [19s]
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_12DxXAm14G3ac6B7ScCPxh5JPTGQ",
+    "url": "https://github-blog-arthurdias256-iacvehcit-arthurdias256.vercel.app",
+    "inspectorUrl": "https://vercel.com/arthurdias256/github-blog-arthurdias256/12DxXAm14G3ac6B7ScCPxh5JPTGQ",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_12DxXAm14G3ac6B7ScCPxh5JPTGQ"
+  },
+  "message": "Deployment github-blog-arthurdias256-iacvehcit-arthurdias256.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect github-blog-arthurdias256-iacvehcit-arthurdias256.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

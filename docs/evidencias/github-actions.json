@@ -1,0 +1,10 @@
+{
+  "run": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/actions/runs/45652648324",
+  "commit": "4ac179e317c3954abcec31d3de1f96189b0f0893",
+  "status": "completed",
+  "conclusion": "failure",
+  "job": 139340941737,
+  "steps": [],
+  "annotation": "The job was not started because your account is locked due to a billing issue.",
+  "interpretation": "Bloqueio externo de conta/faturamento; nenhum step ou teste do workflow foi executado. Não equivale a falha de teste."
+}

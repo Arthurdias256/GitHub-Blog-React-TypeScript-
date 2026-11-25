@@ -31,6 +31,7 @@ Ferramenta: OpenCode, assistente GPT-6.1 Sol Fast. Este documento usa o nome exi
 - **Objetivo:** deployment real, sem inventar URL.
 - **Resultado:** acesso ao GitHub e login CLI Vercel como arthurdias256 confirmados; configuração SPA/CI preparada. Deployment READY em https://github-blog-arthurdias256.vercel.app; Home, busca, páginas 6+4, detalhe/reload e mobile com API real verificados em evidencias/producao/browser-real.json. Conexão automática GitHub/Vercel falhou; deploy CLI independente funcionou. engines ajustada para Node 24.x após aviso do build remoto.
 - **Verificação pelo aluno:** conferir links e registrar sua demonstração no prazo do Blackboard.
+- **Auditoria remota:** Actions run 45652648324 retornou falha sem iniciar steps por conta bloqueada devido a faturamento. Mensagem real preservada em evidencias/github-actions.json; não foi declarada aprovação de CI nem realizada alteração de cobrança.
 
 ## O que não foi inventado
 Não há garantia de nota, conformidade integral WCAG ou comparação pixel-perfect. Não há registro de conhecimento pessoal do aluno nem apresentação já realizada. Nenhum token está no código/README/VITE_*. Capturas representam a aplicação e referências reais, não mockups fabricados.

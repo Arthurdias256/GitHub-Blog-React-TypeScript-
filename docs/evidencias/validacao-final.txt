@@ -1,33 +1,144 @@
-﻿**********************
-Início da transcrição do Windows PowerShell
-Hora de início: 20261125130536
-Nome de Usuário: DESKTOP-6UOE54L\Windows
-Executar como Usuário: DESKTOP-6UOE54L\Windows
-Nome da Configuração: 
-Computador: DESKTOP-6UOE54L (Microsoft Windows NT 10.0.26200.0)
-Aplicativo Host: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE -NoLogo -NoProfile -NonInteractive -Command $listener = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue; if ($listener) { $serverPid = ($listener | Select-Object -First 1).OwningProcess; $server = Get-CimInstance Win32_Process -Filter "ProcessId = $serverPid"; if ($server.CommandLine -match 'vite') { Stop-Process -Id $serverPid } }; Start-Transcript -Path docs/evidencias/validacao-final.txt -Force; npm ci; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm ls vite; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run lint; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npx tsc --noEmit; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run typecheck; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run test; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run test:e2e; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run build; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run test:api; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm audit; Stop-Transcript
-ID do Processo: 29776
-PSVersion: 5.1.26100.9711
-PSEdition: Desktop
-PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
-BuildVersion: 10.0.26100.9711
-CLRVersion: 4.0.30319.42000
-WSManStackVersion: 3.0
-PSRemotingProtocolVersion: 2.3
-SerializationVersion: 1.1.0.1
-**********************
-Transcrição iniciada, o arquivo de saída é docs/evidencias/validacao-final.txt
+Validação real — 2026-11-25T16:13:46.163Z
+Node v24.11.1
+
+$ npm ci
+
+added 438 packages, and audited 445 packages in 1m
+
+164 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm WARN deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+Exit code: 0
+
+$ npm ls vite
+github-blog@1.0.0 C:\Users\Windows\Desktop\GitHub Blog  React TypeScript\GitHub-Blog-React-TypeScript-
++-- @tailwindcss/vite@4.3.5
+| `-- vite@8.3.8 deduped
++-- @vitejs/plugin-react@6.3.0
+| `-- vite@8.3.8 deduped
++-- vite@8.3.8
+`-- vitest@5.1.2
+  +-- @vitest/mocker@5.1.2
+  | `-- vite@8.3.8 deduped
+  `-- vite@8.3.8 deduped
 
 
+Exit code: 0
+
+$ npm run lint
+
+> github-blog@1.0.0 lint
+> eslint .
 
 
+Exit code: 0
+
+$ npx tsc --noEmit
+
+Exit code: 0
+
+$ npm run typecheck
+
+> github-blog@1.0.0 typecheck
+> tsc -b
 
 
+Exit code: 0
+
+$ npm run test
+
+> github-blog@1.0.0 test
+> vitest run
 
 
+ RUN  v5.1.2 C:/Users/Windows/Desktop/GitHub Blog  React TypeScript/GitHub-Blog-React-TypeScript-
 
 
-**********************
-Fim da transcrição do Windows PowerShell
-Hora de término: 20261125130814
-**********************
+ Test Files  2 passed (2)
+      Tests  31 passed (31)
+   Start at  13:15:59
+   Duration  23.68s (tests 42%, environment 31%, setup 16%, import 7%, transform 3%)
+
+
+Exit code: 0
+
+$ npm run test:e2e
+
+> github-blog@1.0.0 test:e2e
+> playwright test
+
+
+Running 11 tests using 2 workers
+
+  ok  2 [chromium] › tests\e2e\blog.spec.ts:16:1 › busca, paginação, detalhes, reload e retorno (8.9s)
+  ok  1 [chromium] › tests\e2e\blog.spec.ts:34:1 › vazio, limpeza e 404 (10.2s)
+  ok  3 [chromium] › tests\e2e\blog.spec.ts:46:1 › erro da API, limite, rede e retry (2.6s)
+  ok  4 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 320px (3.9s)
+  ok  5 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 375px (4.3s)
+  ok  6 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 390px (4.0s)
+  ok  7 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 768px (4.0s)
+  ok  8 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 1024px (4.0s)
+  ok  9 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 1440px (3.8s)
+  ok 10 [chromium] › tests\e2e\blog.spec.ts:58:3 › Home e detalhe sem overflow em 1920px (3.9s)
+  ok 11 [chromium] › tests\e2e\blog.spec.ts:67:1 › teclado e auditoria automatizada WCAG 2.2 AA (7.4s)
+
+  11 passed (43.5s)
+
+Exit code: 0
+
+$ npm run build
+
+> github-blog@1.0.0 build
+> tsc -b && vite build
+
+[36mvite v8.3.8 [32mbuilding client environment for production...[36m[39m
+transforming...
+✓ 1898 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                       0.57 kB │ gzip:   0.36 kB
+dist/assets/nunito-latin-700-normal-Dort48En.woff2   16.22 kB
+dist/assets/nunito-latin-400-normal-r8SDr6Up.woff2   16.31 kB
+dist/assets/nunito-latin-700-normal-OcDqTBcA.woff    19.98 kB
+dist/assets/nunito-latin-400-normal-DKg4f3fz.woff    20.33 kB
+dist/assets/index-BN3-2c5x.css                       19.16 kB │ gzip:   4.65 kB
+dist/assets/PostDetails-B5pByt7s.js                 167.52 kB │ gzip:  50.46 kB
+dist/assets/index-BD0bmYj0.js                       335.95 kB │ gzip: 110.36 kB
+
+[32m✓ built in 1.62s[39m
+
+Exit code: 0
+
+$ npm run test:api
+
+> github-blog@1.0.0 test:api
+> node scripts/check-api.mjs
+
+{
+  "result": "PASS",
+  "authentication": "none",
+  "profile": "Arthurdias256",
+  "public": true,
+  "total": 10,
+  "firstPage": 6,
+  "secondPage": 4,
+  "search": 3,
+  "empty": 0,
+  "detail": "https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues/10",
+  "duplicateIds": false
+}
+
+Exit code: 0
+
+$ npm audit
+found 0 vulnerabilities
+
+Exit code: 0
+
+$ node scripts/audit-secrets.mjs
+PASS: 76 arquivos candidatos ao Git verificados; nenhum padrão de credencial encontrado. Esta verificação não substitui revisão humana.
+
+Exit code: 0

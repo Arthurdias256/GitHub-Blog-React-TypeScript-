@@ -1,6 +1,6 @@
 # PRD — GitHub Blog
 
-**Status: requisitos oficiais mapeados e aplicação implementada/testada localmente; entrega em finalização.** Fonte primária: Notion, seções 1–14 lidas por rolagem no navegador MCP durante a continuação. Diagnóstico inicial preservado em evidencias/ACESSO_INICIAL.md.
+**Status: requisitos oficiais mapeados; aplicação implementada, testada e publicada.** Fonte primária: Notion, seções 1–14 lidas por rolagem no navegador MCP durante a continuação. Diagnóstico inicial preservado em evidencias/ACESSO_INICIAL.md. Aprovação/apresentação e fidelidade visual exata não são garantidas.
 
 ## Requisitos oficiais (IDs do Notion)
 | ID | Requisito e aceite |

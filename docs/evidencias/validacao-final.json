@@ -1,0 +1,60 @@
+{
+  "node": "v24.11.1",
+  "results": [
+    {
+      "command": "npm ci",
+      "exitCode": 0,
+      "durationMs": 91761
+    },
+    {
+      "command": "npm ls vite",
+      "exitCode": 0,
+      "durationMs": 4594
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "durationMs": 14762
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "durationMs": 3172
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "durationMs": 14949
+    },
+    {
+      "command": "npm run test",
+      "exitCode": 0,
+      "durationMs": 27607
+    },
+    {
+      "command": "npm run test:e2e",
+      "exitCode": 0,
+      "durationMs": 47999
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "durationMs": 16240
+    },
+    {
+      "command": "npm run test:api",
+      "exitCode": 0,
+      "durationMs": 5950
+    },
+    {
+      "command": "npm audit",
+      "exitCode": 0,
+      "durationMs": 3603
+    },
+    {
+      "command": "node scripts/audit-secrets.mjs",
+      "exitCode": 0,
+      "durationMs": 484
+    }
+  ]
+}
