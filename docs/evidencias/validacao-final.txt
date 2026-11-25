@@ -1,0 +1,33 @@
+﻿**********************
+Início da transcrição do Windows PowerShell
+Hora de início: 20261125130536
+Nome de Usuário: DESKTOP-6UOE54L\Windows
+Executar como Usuário: DESKTOP-6UOE54L\Windows
+Nome da Configuração: 
+Computador: DESKTOP-6UOE54L (Microsoft Windows NT 10.0.26200.0)
+Aplicativo Host: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE -NoLogo -NoProfile -NonInteractive -Command $listener = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue; if ($listener) { $serverPid = ($listener | Select-Object -First 1).OwningProcess; $server = Get-CimInstance Win32_Process -Filter "ProcessId = $serverPid"; if ($server.CommandLine -match 'vite') { Stop-Process -Id $serverPid } }; Start-Transcript -Path docs/evidencias/validacao-final.txt -Force; npm ci; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm ls vite; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run lint; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npx tsc --noEmit; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run typecheck; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run test; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run test:e2e; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run build; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm run test:api; if ($LASTEXITCODE) { Stop-Transcript; exit $LASTEXITCODE }; npm audit; Stop-Transcript
+ID do Processo: 29776
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcrição iniciada, o arquivo de saída é docs/evidencias/validacao-final.txt
+
+
+
+
+
+
+
+
+
+
+**********************
+Fim da transcrição do Windows PowerShell
+Hora de término: 20261125130814
+**********************

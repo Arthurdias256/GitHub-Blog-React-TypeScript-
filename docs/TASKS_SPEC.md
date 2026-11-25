@@ -15,7 +15,7 @@ Status: implementação e testes locais realizados; documentação, publicação
 - [x] T09: sete larguras sem overflow, teclado e axe na Home/detalhe; nome acessível dos cards corrigido após falha E2E real. Compilação de testes corrigida. Nova execução exigida em T10.
 - [x] T10: 31 testes Vitest (27 fluxos/componentes + 4 utilitários) e 11 Playwright aprovados; MSW e interceptação E2E independentes do GitHub. Lint/tsc -b aprovados. Primeira falha de mock (React no nome do repo) corrigida; espera assíncrona RTL 5s para import lazy em ambiente Windows, sem remover cenário. Resultados finais repetidos em T13.
 - [x] T11: README, SPEC revisados, matriz oficial, AI_USAGE com quatro registros e roteiro de apresentação; cinco screenshots reais da aplicação + duas capturas Figma, browser-real.json. Revisão pessoal do aluno ainda pendente e explícita.
-- [ ] T12: build, CI e deploy quando autenticado.
+- [x] T12: build remoto Vercel READY; https://github-blog-arthurdias256.vercel.app validada com API real, screenshots desktop/mobile e reload direto. CI preparado. Conexão automática GitHub/Vercel falhou; deploy CLI independente aprovado. Node fixado em 24.x para evitar atualização automática no build.
 - [ ] T13: auditoria final.
 
 | Tarefa | Dependências | Requisitos | Critério de conclusão / teste | Evidência / situação |
@@ -30,8 +30,8 @@ Status: implementação e testes locais realizados; documentação, publicação
 | T08 — detalhes/Markdown | T04, T06 | RF-09/10/11/12 | Rota direta/Markdown/retorno | cd6059c |
 | T09 — responsividade/a11y | T05–T08 | RF-15/16 | Larguras, teclado, axe | fedc217 |
 | T10 — testes | T02–T09 | RF-13/14 e fluxos | 31 Vitest/11 E2E | 164371c |
-| T11 — documentação/evidências | T01–T10 | Entrega/IA | Docs/screenshots/roteiro | Em finalização |
-| T12 — publicação | T10–T11, autenticação | Entrega | Build e URL real | Em finalização |
+| T11 — documentação/evidências | T01–T10 | Entrega/IA | Docs/screenshots/roteiro | 55bf0a6 |
+| T12 — publicação | T10–T11, autenticação | Entrega | Build e URL real | Vercel READY; produção testada |
 | T13 — auditoria final | Todas | Rubrica | Repetir validações e matriz | Em finalização |
 
 - [x] Inspecionar pasta e preservar README/remote existentes.

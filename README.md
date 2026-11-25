@@ -6,7 +6,7 @@ Blog técnico desenvolvido para a recuperação individual de **Single Page Appl
 
 **[Repositório público](https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-) · [Dez publicações reais](https://github.com/Arthurdias256/GitHub-Blog-React-TypeScript-/issues)**
 
-**Produção:** deployment em preparação; URL será adicionada após publicação verificada.
+**[Aplicação publicada na Vercel](https://github-blog-arthurdias256.vercel.app)** — Home, busca, páginas 6+4, detalhe/reload e mobile verificados com API pública real. [Evidências de produção](docs/evidencias/producao/).
 
 ## Funcionalidades
 - Perfil real com avatar, bio, usuário, empresa quando disponível e seguidores.
@@ -30,7 +30,7 @@ Capturadas em navegador com API pública, sem fixtures. Mais evidências em [doc
 </details>
 
 ## Tecnologias e pré-requisitos
-Node **>=22.12.0** (validado 24.11.1), npm >=9 (validado 9.3.1) e Git. Stack instalada: React 19.3.1, TypeScript 5.9.3, **Vite 8.3.8**, Tailwind 4.3.5, Axios 1.21.1, React Router 7.18.7, react-markdown 10.1.0 e remark-gfm 4.0.1. Qualidade: ESLint 9.39.5, Vitest 5.1.2, Testing Library, MSW, Playwright 1.65.1 e axe. Todas as versões resolvidas estão no package-lock.json.
+Node **24.x** (validado 24.11.1), npm >=9 (validado 9.3.1) e Git. Node fixado na série 24 para consistência local/CI/Vercel, embora Vite também suporte outras versões. Stack instalada: React 19.3.1, TypeScript 5.9.3, **Vite 8.3.8**, Tailwind 4.3.5, Axios 1.21.1, React Router 7.18.7, react-markdown 10.1.0 e remark-gfm 4.0.1. Qualidade: ESLint 9.39.5, Vitest 5.1.2, Testing Library, MSW, Playwright 1.65.1 e axe. Todas as versões resolvidas estão no package-lock.json.
 
 ## Instalação e execução
 ```bash
@@ -87,7 +87,7 @@ vercel.json
 Dez issues técnicas preparadas especificamente para este repositório, com apoio explícito de IA: React, TypeScript, Axios, Tailwind, Router, acessibilidade, testes, Git, segurança e Markdown. `scripts/seed-issues.mjs` é ferramenta administrativa, nunca código do navegador: verifica conta/permissões e consulta credencial local somente em memória. Não é necessário executá-lo para usar o blog; as issues já existem. O aluno deve revisar e compreender o conteúdo.
 
 ## Deploy
-Configuração Vercel pronta: Vite, `npm ci`, `npm run build`, saída `dist`, fallback SPA em vercel.json e nenhum segredo no bundle. Para publicar em sua conta autenticada: `npx vercel@50 --prod`. Alternativamente, importe o repositório na Vercel com as configurações acima. Confira Home, busca/paginação e atualização direta de `/post/10`. Não compartilhe tokens no chat ou no Git.
+Configuração Vercel validada: Vite, `npm ci`, `npm run build`, saída `dist`, fallback SPA em vercel.json e nenhum segredo no bundle. Projeto `arthurdias256/github-blog-arthurdias256`, publicado via CLI autenticada. Para republicar: `npx vercel@50 --prod`. A conexão automática GitHub → Vercel falhou na CLI; o deploy direto funcionou. Para deploy por push, instale/autorize a integração GitHub na Vercel e conecte este repositório nas configurações do projeto já criado (não criar duplicado). Não compartilhe tokens no chat ou no Git.
 
 ## Documentação e referências
 - [PRD — requisitos oficiais e complementares](docs/PRD_SPEC.md)

@@ -12,7 +12,7 @@ Fonte: Notion, seções 12 e 13, lidas via navegador MCP; pontuações oficiais,
 | Figma, Tailwind, responsividade e acessibilidade | 10 | Base visual observada, mobile/teclado/labels/foco; assets/medidas aproximados | src/styles/global.css; src/components/ | E2E sete larguras + axe | figma-projeto.png; figma-style-guide.png; home-mobile.png | Parcialmente atendido |
 | Resiliência, testes e tratamento de erros | 5 | Loading, rede, HTTP, rate limit/reset, 404, retry | src/components/States.tsx; src/services/api.ts | 31 Vitest e 11 E2E | Resultados e logs de validação | Atendido |
 | PRD_SPEC, TECH_SPEC, TASKS_SPEC e AGENTS.md | 10 | Docs canônicos em docs/, orientações na raiz, aceites/rastreabilidade | docs/*SPEC.md; AGENTS.md | Revisão documental | Arquivos e commits | Atendido |
-| Git/GitHub, deploy, README e uso do OpenCode | 5 | Histórico incremental, dez issues, README e três evidências IA; publicação em andamento | README.md; docs/AI_USAGE.md; vercel.json | Build/deploy a validar | Logs reais e histórico | Parcialmente atendido |
+| Git/GitHub, deploy, README e uso do OpenCode | 5 | Histórico incremental, dez issues, README e quatro registros IA; Vercel READY com fluxos reais | README.md; docs/AI_USAGE.md; vercel.json | Build remoto; integração pública; 11 E2E também contra produção | evidencias/producao/browser-real.json; e2e-producao.txt; histórico | Atendido |
 
 ## Condições mínimas (seção 13)
 - [x] Fluxos implementados e verificados com API real: perfil; listagem/busca paginada; detalhe dinâmico/Markdown.

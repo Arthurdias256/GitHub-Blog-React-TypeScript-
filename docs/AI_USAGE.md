@@ -29,7 +29,7 @@ Ferramenta: OpenCode, assistente GPT-6.1 Sol Fast. Este documento usa o nome exi
 ## Evidência 4 — publicação e auditoria
 - **Prompt real:** “Prepare o repositório público e publique a aplicação na Vercel, caso o Notion não determine outra plataforma e existam permissões disponíveis.”
 - **Objetivo:** deployment real, sem inventar URL.
-- **Resultado até esta revisão:** acesso ao GitHub e login CLI Vercel como arthurdias256 confirmados; configuração SPA/CI preparada. Deployment/URL serão registrados somente após sucesso e navegação verificada.
+- **Resultado:** acesso ao GitHub e login CLI Vercel como arthurdias256 confirmados; configuração SPA/CI preparada. Deployment READY em https://github-blog-arthurdias256.vercel.app; Home, busca, páginas 6+4, detalhe/reload e mobile com API real verificados em evidencias/producao/browser-real.json. Conexão automática GitHub/Vercel falhou; deploy CLI independente funcionou. engines ajustada para Node 24.x após aviso do build remoto.
 - **Verificação pelo aluno:** conferir links e registrar sua demonstração no prazo do Blackboard.
 
 ## O que não foi inventado
