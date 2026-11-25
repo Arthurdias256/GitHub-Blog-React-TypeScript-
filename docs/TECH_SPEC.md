@@ -1,6 +1,8 @@
 # TECH SPEC — GitHub Blog
 
 ## Auditoria acadêmica complementar
+O axe completo com dados reais encontrou também label-content-name-mismatch nos cards. IssueCard agora usa article com título/resumo/metadados e um Link somente no título, cuja área clicável é estendida por pseudo-elemento absoluto. Layout e comportamento de clique foram preservados; foco também realça a borda do artigo. Não é um aria-label que oculta texto visível. E2E ampliado para análise axe completa, incluindo regras que o filtro de tags anterior não abrangia. Evidência anterior real: evidencias/auditoria/antes-correcao-cards.json.
+
 Regressões reproduzidas antes da correção: Link do logotipo removia q da URL, mas o draft antigo voltava a inseri-lo após debounce; Markdown ## era convertido em h3, gerando heading-order no axe completo. Home agora reconcilia draft quando a query canônica muda, com atualização de estado condicional/guardada antes de commit de render (padrão de ajuste de estado a mudança de entrada), sem depender de evento popstate. Plugin remarkHeadingOrder normaliza a árvore Markdown abaixo do h1 do post; não altera código nem habilita HTML. Testes de regressão acrescentados para logotipo/histórico e hierarquia. Demais fluxos e identidade preservados.
 
 ## T10 — estratégia de testes implementada
@@ -36,6 +38,19 @@ Setup manual para preservar pasta existente (não vazia). Node 24.11.1/npm 9.3.1
 Node 24.11.1; npm 9.3.1; React/React DOM 19.3.1; TypeScript 5.9.3; Vite 8.3.8; plugin React 6.3.0; Tailwind/plugin 4.3.5; Axios 1.21.1; React Router DOM 7.18.7; react-markdown 10.1.0; remark-gfm 4.0.1; Lucide 0.468.0; Nunito 5.3.0; ESLint 9.39.5; Vitest 5.1.2; Testing Library React 16.3.3; user-event 14.6.13; jest-dom 6.9.1; jsdom 27.4.0; MSW 2.15.0; Playwright 1.65.1; axe Playwright 4.14.1. Registro: npm ls --depth=0 e package-lock.json. Node engines do Vite: ^20.19.0 ou >=22.12.0; projeto fixado em 24.x após aviso da Vercel sobre atualização automática de engines aberta, mantendo CI/local/build remoto coerentes.
 
 ## Estrutura e fluxo de dados
+### Rastreabilidade técnica exigida na seção 7
+| Responsabilidade | Arquivos efetivos | IDs do PRD |
+|---|---|---|
+| Perfil tipado e campos nulos | config/github.ts, types/github.ts, services/github.ts, components/ProfileCard.tsx | RF-01/02; RN-01/10 |
+| Issues próprias, recentes, cards sem PR e resumos | components/IssueCard.tsx, utils/content.ts, services/github.ts; scripts/seed-issues.mjs | RF-03/04/08; RN-01/02/03/04/07 |
+| Busca, debounce, escopo e paginação | pages/Home.tsx, components/SearchInput.tsx, components/Pagination.tsx | RF-05/06/07; RN-03/04/05/06 |
+| Rota e consulta individual | routes/AppRoutes.tsx, pages/PostDetails.tsx, services/github.ts | RF-09/10/12; RN-08 |
+| Markdown e headings | components/MarkdownContent.tsx, utils/remarkHeadingOrder.ts | RF-11/16; RN-07/09 |
+| Efeito/cancelamento/erros/retry | hooks/useResource.ts, services/api.ts, components/States.tsx | RF-13/14; RN-08/09 |
+| Tailwind, teclado, foco, contraste e 404 | styles/global.css, components/Header.tsx, App.tsx, pages/NotFound.tsx | RF-15/16; RNF-01/04 |
+
+Os caminhos sem prefixo na tabela são relativos a src/, exceto scripts/. Props de ProfileCard são internas; IssueCard recebe issue; IssueList recebe issues; SearchInput recebe value/pending/onChange/onSubmit; Pagination recebe page/pages/disabled/onPage; ErrorState recebe error/onRetry e LoadingState recebe message. AppRoutes cuida da rota/foco; o plugin Markdown só normaliza headings na AST, não busca nem executa dados externos.
+
 ```
 src/
   config/github.ts       configuração pública e seis itens/página

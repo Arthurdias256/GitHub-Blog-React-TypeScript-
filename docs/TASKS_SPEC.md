@@ -18,21 +18,23 @@ Status: etapas técnicas T01–T13 realizadas, aplicação publicada e repositó
 - [x] T12: build remoto Vercel READY; https://github-blog-arthurdias256.vercel.app validada com API real, screenshots desktop/mobile e reload direto. CI preparado. Conexão automática GitHub/Vercel falhou; deploy CLI independente aprovado. Node fixado em 24.x para evitar atualização automática no build.
 - [x] T13: instalação limpa repetida com Node 24.x/lockfile final; npm ci, Vite 8.3.8, lint, tsc --noEmit, tsc -b, 31 Vitest, 11 E2E, build, integração real, audit e inspeção de credenciais aprovados (validacao-final.txt/json). Build remoto Node 24 READY e 11 E2E contra produção aprovados. Push autorizado/verificado até 4ac179e; commit desta auditoria será enviado em seguida e confirmado pelo HEAD remoto.
 
-| Tarefa | Dependências | Requisitos | Critério de conclusão / teste | Evidência / situação |
-|---|---|---|---|---|
-| T01 — análise oficial e SPEC | Referências | Todos | Rubrica/aceites documentados | 10fa708; NOTION_CONTINUACAO.md |
-| T02 — configuração | T01 | Stack | Vite 8/lint/build | 241c88b |
-| T03 — identidade visual | T01–T02 | RF-15/16 | Guia visual e base responsiva | abde3a9; aproximações declaradas |
-| T04 — API GitHub | T02 | RF-01/05/10/13/14 | Serviços e erros tipados | efc1077 + correção 7ec884c |
-| T05 — perfil | T03–T04 | RF-01/02 | Dados/fallback/estados | ddb6959 |
-| T06 — publicações | T03–T04 | RF-03/04/08 | Issues sem PR, metadados | ed82e42; dez issues públicas |
-| T07 — busca/paginação | T06 | RF-05/06/07 | API/reset/cancelamento | 23cf9b4 |
-| T08 — detalhes/Markdown | T04, T06 | RF-09/10/11/12 | Rota direta/Markdown/retorno | cd6059c |
-| T09 — responsividade/a11y | T05–T08 | RF-15/16 | Larguras, teclado, axe | fedc217 |
-| T10 — testes | T02–T09 | RF-13/14 e fluxos | 31 Vitest/11 E2E | 164371c |
-| T11 — documentação/evidências | T01–T10 | Entrega/IA | Docs/screenshots/roteiro | 55bf0a6 |
-| T12 — publicação | T10–T11, autenticação | Entrega | Build e URL real | 4ac179e; Vercel READY; produção testada |
-| T13 — auditoria final | Todas | Rubrica | Repetir validações e matriz | validacao-final.txt/json; RELATORIO_FINAL.md; hash disponível no histórico após commit |
+Tabela complementada na auditoria para explicitar **todos** os campos pedidos na seção 7. RF/RN referem-se aos IDs oficiais do PRD; “seção” indica requisito documental/técnico sem inventar novo ID.
+
+| ID/descrição | Pré-requisitos | RF/RN relacionados | Arquivos envolvidos | Critério de pronto/teste | Status | Commit/evidência |
+|---|---|---|---|---|---|---|
+| T01 — análise oficial/SPEC | Referências | Todos; seção 7 | docs/*SPEC.md, AGENTS.md | Rubrica/aceites documentados antes do código | Concluído, complementado nesta auditoria | 10fa708; NOTION_CONTINUACAO.md |
+| T02 — configurar stack | T01 | Seção 5; RN-10 | package*.json, vite.config.ts, tsconfig*.json, eslint.config.js | Vite 8/lint/build válidos | Concluído | 241c88b |
+| T03 — base visual | T01–T02 | RF-15/16; RNF-01 | src/styles/global.css, src/components/Header.tsx | Guia visual e layout base; aproximações documentadas | Concluído com limitação de assets | abde3a9 |
+| T04 — serviços HTTP | T02 | RF-01/05/10/13/14; RN-01/03/06/08/09/10 | src/services/*.ts, src/types/github.ts, src/config/github.ts, src/hooks/useResource.ts | Tipos/erros/cancelamento, lint/types/build | Concluído após correção | efc1077 + 7ec884c |
+| T05 — perfil | T03–T04 | RF-01/02/13; RN-01/08 | src/components/ProfileCard.tsx, src/components/States.tsx | Dados reais, nulos, loading e retry testados | Concluído | ddb6959; app.test.tsx |
+| T06 — issues/cards | T03–T04 | RF-03/04/08; RN-01/02/03/04/07 | src/components/IssueCard.tsx, src/utils/content.ts, scripts/seed-issues.mjs | Dez issues próprias, recentes, sem PR; resumo/metadados | Concluído | ed82e42; issues/1–10; test:api |
+| T07 — busca/páginas | T06 | RF-05/06/07; RN-03/04/05/06 | src/pages/Home.tsx, src/components/SearchInput.tsx, src/components/Pagination.tsx | Search API/debounce/reset/contagem/concorrência | Concluído; navegação corrigida nesta auditoria | 23cf9b4 + 5836af6; app/E2E |
+| T08 — detalhe/Markdown | T04/T06 | RF-09/10/11/12; RN-07/08/09 | src/routes/AppRoutes.tsx, src/pages/PostDetails.tsx, src/components/MarkdownContent.tsx | Acesso direto/reload/retorno e Markdown | Concluído; headings corrigidos | cd6059c + 5836af6; app/E2E |
+| T09 — responsividade/a11y | T05–T08 | RF-15/16; RNF-04 | src/styles/global.css, src/pages/NotFound.tsx, src/components/IssueCard.tsx | Sete larguras, teclado, foco, contraste e axe | Concluído com ajustes auditados | fedc217 + 542aaf4 |
+| T10 — testes | T02–T09 | RF-13/14 e fluxos; RN-08 | src/tests/*, tests/e2e/blog.spec.ts, *test.config.ts, playwright.config.ts | Suíte independente da API; integração real separada | Concluído, ampliado | 164371c; novos casos em 5836af6/542aaf4 |
+| T11 — documentação/IA | T01–T10 | Seções 7/8/11 | README.md, docs/*SPEC.md, docs/AI_USAGE.md, docs/APRESENTACAO.md, docs/evidencias/ | Docs, rastreabilidade e capturas reais | Artefatos concluídos; revisão pessoal pendente | 55bf0a6; auditoria complementar |
+| T12 — publicação | T10/T11, autenticação | Seção 11; RN-09 | vercel.json, .github/workflows/ci.yml | Build/deploy real, rota direta; sem segredos | Publicado; CI externo bloqueado | 4ac179e; deploy-final.txt |
+| T13 — auditar entrega | Todas | Seções 10–13 | docs/RELATORIO_FINAL.md, scripts/validate.mjs, docs/RUBRICA.md | Repetir validações e confrontar critérios | Primeira auditoria concluída; revisão atual em andamento | ed78ce9; validacao-final.txt/json |
 
 - [x] Inspecionar pasta e preservar README/remote existentes.
 - [x] Buscar ferramentas MCP específicas e recursos disponíveis: nenhum para Notion/Figma encontrado.
@@ -64,3 +66,4 @@ Auditoria repetida efetivamente por `node scripts/validate.mjs`: todos os onze c
 - [ ] A03 — complementar SPEC no formato da seção 7, evidências IA e checklist Blackboard; matriz/estimativa oficial.
 - [x] A02b — corrigir contorno da busca (1,35:1 → 3,05:1 contra página) e prefixo @ do RF-02. Arquivos: global.css, SearchInput.tsx, ProfileCard.tsx. RF-02/16, RNF-04. Sem mudança de layout, fonte, superfícies ou funcionalidades.
 - [ ] A04 — repetir instalação/validações, verificar API/visibilidade/credenciais, publicar correções e auditar produção.
+- [x] A02c — corrigido label-content-name-mismatch identificado em seis cards reais pelo axe completo; visual/clique preservados, clique no padding e axe completo testados. Arquivos: IssueCard.tsx, app.test.tsx, blog.spec.ts. RF-08/09/16. 12 E2E aprovados; erro TypeScript no novo teste (opção exact do Playwright usada na RTL) corrigido sem relaxar tipagem. Evidência anterior: auditoria/antes-correcao-cards.json.

@@ -16,6 +16,7 @@ describe('fluxos completos', () => {
     expect(screen.getByText('12 seguidores')).toBeVisible()
     expect(screen.getByText('@Arthurdias256')).toBeVisible()
     expect(screen.getAllByRole('article')).toHaveLength(6)
+    expect(screen.getByRole('link', { name: issues[0].title }).querySelector('article')).toBeNull()
     expect(screen.getByRole('button', { name: 'Anterior' })).toBeDisabled()
   })
 

@@ -29,6 +29,13 @@ test('busca, paginação, detalhes, reload e retorno', async ({ page }) => {
   await expect(page.getByRole('table')).toBeVisible()
   await page.getByRole('link', { name: 'Voltar', exact: true }).click()
   await expect(page.getByRole('searchbox')).toHaveValue('React')
+  const firstCard = page.getByRole('article').first()
+  await firstCard.scrollIntoViewIfNeeded()
+  const bounds = await firstCard.boundingBox()
+  expect(bounds).not.toBeNull()
+  // Click the card padding, not the title: the stretched link must keep this working.
+  await page.mouse.click(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height - 16)
+  await expect(page.getByRole('heading', { level: 1, name: 'React publicação 10' })).toBeVisible()
 })
 
 test('vazio, limpeza e 404', async ({ page }) => {
@@ -102,10 +109,10 @@ test('teclado e auditoria automatizada WCAG 2.2 AA', async ({ page }) => {
   await expect(page.getByRole('searchbox')).toHaveCSS('outline-style', 'solid')
   await expect(page.getByRole('searchbox')).toHaveCSS('outline-width', '2px')
   await page.keyboard.press('Tab'); await expect(page.getByRole('button', { name: 'Limpar pesquisa' })).toBeFocused()
-  const home = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
+  const home = await new AxeBuilder({ page }).analyze()
   expect(home.violations).toEqual([])
   await page.goto('/post/10'); await expect(page.getByRole('table')).toBeVisible()
-  const detail = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()
+  const detail = await new AxeBuilder({ page }).analyze()
   expect(detail.violations).toEqual([])
   const headings = await new AxeBuilder({ page }).withRules(['heading-order']).analyze()
   expect(headings.violations).toEqual([])
