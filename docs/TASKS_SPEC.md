@@ -8,7 +8,8 @@ Status de continuação: **implementação autorizada; T01 documentada**. Notion
 - [x] T03: tokens, Nunito local, Header e estilos compartilhados; validação técnica lint/build. Fidelidade pixel-perfect não afirmada.
 - [x] T04: serviços GitHub, tipagens, cancelamento e erros; permissão pública/autenticada verificada (testes de serviços em T10). Primeira compilação falhou TS1294 por parameter properties com erasableSyntaxOnly; corrigidas para propriedades explícitas, sem relaxar TypeScript. O commit efc1077 foi criado indevidamente após a falha por comandos PowerShell não interromperem automaticamente; correção e nova validação registradas no commit seguinte.
 - [x] T05: ProfileCard integrado ao endpoint real; campos opcionais, loading e retry. Lint/build aprovados; integração real auditada em T10.
-- [ ] T06: IssueCard/IssueList.
+- [x] T06: IssueCard/IssueList, resumos/datas/comentários e listagem real; lint/build aprovados. Script para dez issues no único repositório autorizado.
+- [ ] Dados RF-03: primeira issue existe (/issues/1); criação das seguintes recebeu HTTP 500/503 do GitHub. Reexecutar script idempotente posteriormente; não afirmar dez criadas até verificar.
 - [ ] T07: busca e paginação.
 - [ ] T08: detalhes e Markdown.
 - [ ] T09: responsividade/acessibilidade.

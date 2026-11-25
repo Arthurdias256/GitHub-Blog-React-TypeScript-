@@ -1,5 +1,8 @@
 # TECH SPEC — GitHub Blog
 
+## T06 — catálogo
+Home consulta Search API sem termo (permitido RN-04); IssueCard/IssueList com Props tipadas, keys por id, metadados e resumo sem blocos Markdown cru. Datas via Intl em português. scripts/seed-issues.mjs é administrativo/idempotente por título, verifica usuário/permissões/repositório público e lê credencial apenas em memória; não é importado no cliente. Publicações técnicas preparadas com apoio de IA e identificação explícita.
+
 ## T05 — perfil
 ProfileCard usa useResource/getProfile, com erro independente das publicações. Props nos estados; dados do perfil tipados; fallback de nome/bio, empresa omitida se nula; avatar com alt/dimensões, link externo seguro. Corresponde RF-01/RF-02/RF-13.
 
